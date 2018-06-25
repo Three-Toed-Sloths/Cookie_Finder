@@ -1,2 +1,2 @@
-INSERT INTO store (name, description, price, stock)
-VALUES ()
+-- INSERT INTO store (name, description, price, stock)
+-- VALUES ()
