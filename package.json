@@ -1,0 +1,26 @@
+{
+  "name": "girl_scout_cookies",
+  "version": "1.0.0",
+  "description": "UCI Bootcamp Project 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Three-Toed-Sloths/project_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Three-Toed-Sloths/project_2/issues"
+  },
+  "homepage": "https://github.com/Three-Toed-Sloths/project_2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.38.0"
+  }
+}
