@@ -25,3 +25,10 @@ module.exports = function(sequelize, DataTypes) {
     });
     return Products;
 }
+
+Products.belongsTo(models.Seller,
+    {
+        foreignKey:'sellerProductCode',
+        onDelete: 'CASCADE'
+    }
+);
