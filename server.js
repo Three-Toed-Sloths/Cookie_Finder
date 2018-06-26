@@ -1,13 +1,13 @@
 // DEPENDENCIES
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require("express");
+const bodyParser = require("body-parser");
 
 // EXPRESS APP
-var PORT = process.env.PORT || 3000;
-var app = express();
+const PORT = process.env.PORT || 3000;
+const app = express();
 
 // MODELS
-var db = require("./models");
+const db = require("./models");
 
 // PARSE
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +27,7 @@ require("./routes/inventory-routes.js")(app);
 //======================================================================================
 // SYNC
 //======================================================================================
-db.sequelize.sync().then(function(){
+db.sequelize.sync({ force: true }).then(function(){
     app.listen(PORT, function(){
         console.log("listening at localhost:", PORT)
     });
