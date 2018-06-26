@@ -11,7 +11,7 @@ module.exports = function(app){
 
     // POST new products (may not need)
     app.post("/api/products", function(req, res){
-        db.Products.create(req.body).then(function(dbSeller){
+        db.Products.create(req.body).then(function(dbProducts){
             res.json(dbProducts)
         });
     });

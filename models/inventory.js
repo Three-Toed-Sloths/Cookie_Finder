@@ -1,26 +1,48 @@
 module.exports = function(sequelize, DataTypes) {
     const Inventory = sequelize.define("Inventory", {
-        store_id: {
-            type: DataTypes.INTEGER(1000),
+        stock: {
+            type: DataTypes.INTEGER(10),
             allowNull: false,
             validate: {
                 isNumeric: true
             }
         },
-        prod_id: {
-            type: DataTypes.INTEGER(1000),
+        createdAt: {
             allowNull: false,
-            validate: {
-                isNumeric: true
-            }
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
-        stock_quantity: {
-            type: DataTypes.INTEGER(1000),
+        updatedAt: {
             allowNull: false,
-            validate: {
-                isNumeric: true
-            }
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         }
+    },{
+        freezeTableName: true
     });
+
+
     return Inventory;
 }
+
+
+
+
+
+// store_id: {
+//     type: DataTypes.INTEGER(10),
+//     allowNull: false,
+//     validate: {
+//         isNumeric: true
+//     }
+// },
+// prod_id: {
+//     type: DataTypes.INTEGER(10),
+//     allowNull: false,
+//     validate: {
+//         isNumeric: true
+//     }
+// },
+
+
+

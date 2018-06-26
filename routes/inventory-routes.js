@@ -13,11 +13,11 @@ module.exports = function(app){
     });
 
     // GET inventory by seller
-    app.get("/api/inventory/:id", function(req,res){
+    app.get("/api/inventory/seller/:id", function(req,res){
 
         db.Inventory.findAll({
             where: {
-                sellerID: req.params.id
+                sellerId: req.params.id
             },
             include: [db.Products][db.Seller]
         }).then(function(dbInventory){
@@ -26,7 +26,7 @@ module.exports = function(app){
     });
 
     // GET inventory by product
-    app.get("/api/inventory/:id", function(req,res){
+    app.get("/api/inventory/product/:id", function(req,res){
 
         db.Inventory.findAll({
             where: {
@@ -41,9 +41,31 @@ module.exports = function(app){
 
     // POST new inventory
     app.post("/api/inventory", function(req, res) {
-        db.Inventory.create(req.body).then(function(dbInventory) {
+        const newInventory = req.body;
+
+        db.Inventory.create({
+            stock: newInventory.stock,
+            productId: newInventory.productId,
+            sellerId: newInventory.sellerID
+
+        }).then(function(dbInventory) {
           res.json(dbInventory);
         });
+    });
+
+    // UPDATE new inventory
+    app.put("/api/inventory/", function(req, res) {
+    
+            db.Inventory.update(
+                req.body,
+                {
+                    where: {
+                        //this should be inventory unique ID
+                        id: req.body.id
+                    }  
+            }).then(function(dbInventory) {
+              res.json(dbInventory);
+            });
     });
 
 
