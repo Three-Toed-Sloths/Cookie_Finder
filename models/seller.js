@@ -8,5 +8,14 @@ module.exports = function(sequelize, DataTypes) {
                 }
             }
     });
+
+
     return Seller;
 }
+
+Seller.hasMany(models.Products,
+    {
+        foreignKey:'sellerProductCode',
+        onDelete: 'CASCADE'
+    }
+);
