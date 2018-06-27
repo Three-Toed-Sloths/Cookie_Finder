@@ -21,6 +21,7 @@ $(document).ready(function() {
 
         // check if works? (below)
         // goal is to check if sellerInfo is empty string or not.
+        // I believe empty strings are falsey
         // may need to have (sellerInfo === '')
         if(!sellerInfo){
             return;
@@ -59,5 +60,5 @@ $(document).ready(function() {
         });
     };
 
-    
+
 });
