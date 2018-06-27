@@ -31,12 +31,28 @@ $(document).ready(function() {
         $.get('/api/products', function(data){
             console.log(data);
 
-            // where do you want sellers to appear?
             for(let i = 0; i < data.length; i++){
                 console.log(data[i]);
                 // add to a div to show all products
             }
         });
+    };
+
+
+    // View product by id
+    function viewProductById(id){
+
+        if(!NaN(id)){
+            const productId = id;
+            $.get('/api/products/' + productId, function(data){
+                console.log(data);
+    
+                for(let i = 0; i < data.length; i++){
+                    console.log(data[i]);
+                    // add to a div to show product details
+                }
+            });
+        }
     };
 
 

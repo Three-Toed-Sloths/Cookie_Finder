@@ -43,12 +43,12 @@ $(document).ready(function() {
           .then(function(data){
             console.log(data);
               //could also call getAllSellers() to trigger new seller population.
-              // .then(getAllSellers);
+              // .then(viewAllSellers);
           });
     };
 
     // GET all sellers for view
-    function getAllSellers(){
+    function viewAllSellers(){
         $.get('/api/sellers', function(data){
             console.log(data);
 
@@ -58,6 +58,23 @@ $(document).ready(function() {
                 // add to a div to show all sellers
             }
         });
+    };
+
+
+    // View seller by id
+    function viewSellerById(id){
+
+        if(!NaN(id)){
+            const sellerId = id;
+            $.get('/api/sellers/' + sellerId, function(data){
+                console.log(data);
+    
+                for(let i = 0; i < data.length; i++){
+                    console.log(data[i]);
+                    // add to a div to show seller name
+                }
+            });
+        }
     };
 
 
