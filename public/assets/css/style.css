@@ -25,12 +25,18 @@
 hr {
     background: linear-gradient(to right, #f5f5f5, #00c853, #f5f5f5)
 }
+
 .about-text {
     padding: 1.5em 0;
 }
 
 p {
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.info-text {
+    font-size: 1.25em;
+    margin-bottom: 0;
 }
 
 .footer-text {

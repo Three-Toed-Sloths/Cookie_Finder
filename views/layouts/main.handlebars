@@ -6,14 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel='stylesheet' type='text/css' href='../../public/assets/css/style.css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+   
+    <nav class="green">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo hide-on-med-only">Logo</a>
+                <a href="#!" class="brand-logo left hide-on-small-only">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger hide-on-med-and-up">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-small-only show-on-medium-and-up">
+                    <li class="active waves-effect waves-light">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="waves-effect waves-light">
+                        <a href="#">Seller Login</a>
+                    </li>
+                    <li class="waves-effect waves-light">
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ul class="sidenav right" id="mobile-demo">
+        <li>
+            <a href="test.html">Home</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="test.html">Seller Login</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="test.html">About</a>
+        </li>
+        <li class="divider"></li>
+    </ul>
+
     {{{body}}}
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="../../public/assets/js/nav.js"></script>
+
 </body>
 </html>
