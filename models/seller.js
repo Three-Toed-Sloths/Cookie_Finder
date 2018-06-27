@@ -12,11 +12,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(100),
             allowNull: false,
             validate: {
-                len: [1,30]
+                len: [1,100]
             }
         },
         lat: {
-            type:DataTypes.DECIMAL(10, 4),
+            type:DataTypes.DECIMAL(10, 6),
             allowNull: false,
             validate: {
                 len: [1,10],
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         lng: {
-            type:DataTypes.DECIMAL(10, 4),
+            type:DataTypes.DECIMAL(10, 6),
             allowNull: false,
             validate: {
                 len: [1,10],
