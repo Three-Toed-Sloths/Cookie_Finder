@@ -9,6 +9,19 @@ module.exports = function(app){
         });
     });
 
+    // GET product by ID
+    app.get("/api/products/:id", function(req, res) {
+        db.Products.findOne({
+        where: {
+            id: req.params.id
+        }
+        }).then(function(dbProduct) {
+        res.json(dbProduct);
+        });
+    });
+
+
+
     // POST new products (may not need)
     app.post("/api/products", function(req, res){
         db.Products.create(req.body).then(function(dbProducts){

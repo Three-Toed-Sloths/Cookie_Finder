@@ -8,15 +8,38 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1,30]
                 }
             },
+        city: {
+            type: DataTypes.STRING(100),
+            allowNull: false,
+            validate: {
+                len: [1,100]
+            }
+        },
+        lat: {
+            type:DataTypes.DECIMAL(10, 6),
+            allowNull: false,
+            validate: {
+                len: [1,10],
+                isDecimal: true
+            }
+        },
+        lng: {
+            type:DataTypes.DECIMAL(10, 6),
+            allowNull: false,
+            validate: {
+                len: [1,10],
+                isDecimal: true
+            }
+        },
         createdAt: {
-                allowNull: false,
-                type: DataTypes.DATE,
-                defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+            allowNull: false,
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
         updatedAt: {
-                allowNull: false,
-                type: DataTypes.DATE,
-                defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+            allowNull: false,
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         }
     });
 
