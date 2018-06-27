@@ -8,6 +8,29 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1,30]
                 }
             },
+        city: {
+            type: DataTypes.STRING(100),
+            allowNull: false,
+            validate: {
+                len: [1,30]
+            }
+        },
+        lat: {
+            type:DataTypes.DECIMAL(10, 4),
+            allowNull: false,
+            validate: {
+                len: [1,10],
+                isDecimal: true
+            }
+        },
+        lng: {
+            type:DataTypes.DECIMAL(10, 4),
+            allowNull: false,
+            validate: {
+                len: [1,10],
+                isDecimal: true
+            }
+        },
         createdAt: {
                 allowNull: false,
                 type: DataTypes.DATE,

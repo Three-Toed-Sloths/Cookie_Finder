@@ -12,9 +12,7 @@ $(document).ready(function() {
 
 
 
-
-
-
+    
     // Check for seller value
     function handleSellerInventory(event){
         event.preventDefault();

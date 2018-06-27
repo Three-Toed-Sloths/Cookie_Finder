@@ -20,6 +20,17 @@ module.exports = function(app){
         });
     });
 
+    // GET seller by city
+    app.get("/api/sellers/:city", function(req, res) {
+        db.Seller.findAll({
+            where: {
+                city: req.params.city
+            }
+            }).then(function(dbSellers) {
+            res.json(dbSellers);
+        });
+    });
+
     // POST new seller
     app.post("/api/sellers", function(req,res){
         // may not be req.body. Check after AJAX Setup. Need to create object.
