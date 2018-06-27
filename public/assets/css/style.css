@@ -58,3 +58,15 @@ footer {
 h5 {
     font-family: 'Playfair Display', serif;
 }
+
+@media only screen and (max-width: 600px) {
+    #nav-logo {
+        margin-top: 17%;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .parallax-header {
+        margin-top: .4em;
+    }
+}
