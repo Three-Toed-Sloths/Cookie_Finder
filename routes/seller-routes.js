@@ -21,7 +21,7 @@ module.exports = function(app){
     });
 
     // GET seller by city
-    app.get("/api/sellers/:city", function(req, res) {
+    app.get("/api/sellers/city/:city", function(req, res) {
         db.Seller.findAll({
             where: {
                 city: req.params.city
@@ -30,6 +30,7 @@ module.exports = function(app){
             res.json(dbSellers);
         });
     });
+
 
     // POST new seller
     app.post("/api/sellers", function(req,res){
