@@ -6,10 +6,8 @@ module.exports = function(app){
     app.get("/api/inventory", function(req,res){
 
         db.Inventory.findAll({
-            include: [db.Products][db.Seller]
-        }).then(function(dbInventory){
-            res.json(dbInventory);
-        });
+            // include: [db.Products][db.Seller]
+        }).then(dbInventory => res.json(dbInventory));
     });
 
     // GET inventory by seller
@@ -18,11 +16,9 @@ module.exports = function(app){
         db.Inventory.findAll({
             where: {
                 sellerId: req.params.id
-            },
-            include: [db.Products][db.Seller]
-        }).then(function(dbInventory){
-            res.json(dbInventory);
-        });
+            }
+            // include: [db.Products[db.Seller]
+        }).then(dbInventory => res.json(dbInventory));
     });
 
     // GET inventory by product
@@ -31,11 +27,9 @@ module.exports = function(app){
         db.Inventory.findAll({
             where: {
                 productId: req.params.id
-            },
-            include: [db.Products][db.Seller]
-        }).then(function(dbInventory){
-            res.json(dbInventory);
-        });
+            }
+            // include: [db.Products][db.Seller]
+        }).then(dbInventory => res.json(dbInventory));
     });
 
 
@@ -45,12 +39,10 @@ module.exports = function(app){
 
         db.Inventory.create({
             stock: newInventory.stock,
-            productId: newInventory.productId,
-            sellerId: newInventory.sellerID
+            ProductId: newInventory.productId,
+            SellerId: newInventory.sellerId
 
-        }).then(function(dbInventory) {
-          res.json(dbInventory);
-        });
+        }).then(dbInventory => res.json(dbInventory));
     });
 
     // UPDATE new inventory
@@ -63,9 +55,7 @@ module.exports = function(app){
                         //this should be inventory unique ID
                         id: req.body.id
                     }  
-            }).then(function(dbInventory) {
-              res.json(dbInventory);
-            });
+            }).then(dbInventory => res.json(dbInventory));
     });
 
 
@@ -76,9 +66,7 @@ module.exports = function(app){
             where: {
                 id: req.params.id
             },
-        }).then(function(dbInventory){
-            res.json(dbInventory);
-        });
+        }).then(dbInventory => res.json(dbInventory));
     });
 
 
