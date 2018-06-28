@@ -25,7 +25,13 @@
                         <h5>My Cart:</h5>
                         <hr>
                     </div>
-                    <div></div>
+                    <ul>
+                        {{#each}}
+                            {{#if added}} {{!--need to add a 'added' boolean to items--}}
+                                {{> storeFront/cart}}
+                            {{/if}}
+                        {{/each}}
+                    </ul>
                     <div id='cart-bottom'>
                         <p id='subtotal'>Subtotal: $</p>
                         <p id='tax'>Tax: $</p>
