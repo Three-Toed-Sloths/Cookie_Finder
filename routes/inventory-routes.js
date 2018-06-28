@@ -17,7 +17,7 @@ module.exports = function(app){
             where: {
                 sellerId: req.params.id
             }
-            // include: [db.Products][db.Seller]
+            // include: [db.Products[db.Seller]
         }).then(dbInventory => res.json(dbInventory));
     });
 
