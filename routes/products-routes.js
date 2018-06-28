@@ -4,16 +4,27 @@ module.exports = function(app){
 
     // GET all products
     app.get("/api/products", function(req,res){
-        db.Products.findAll({}).then(function(dbProducts){
-            res.json(dbProducts);
-        });
+        db.Products.findAll({})
+        .then(dbProducts => res.json(dbProducts));
     });
+
+    // GET product by ID
+    app.get("/api/products/:id", function(req, res) {
+        db.Products.findOne({
+            where: {
+                id: req.params.id
+            },
+            // allows to see who is selling the products and how much
+            include: [db.Seller]
+
+        }).then(dbProducts => res.json(dbProducts));
+    });
+
 
     // POST new products (may not need)
     app.post("/api/products", function(req, res){
-        db.Products.create(req.body).then(function(dbProducts){
-            res.json(dbProducts)
-        });
+        db.Products.create(req.body)
+         .then(dbProducts => res.json(dbProducts));
     });
 
     // DELETE product
@@ -22,9 +33,7 @@ module.exports = function(app){
         where: {
             id: req.params.id
         }
-        }).then(function(dbProducts) {
-        res.json(dbProducts);
-        });
+        }).then(dbProducts => res.json(dbProducts));
     });
 
     // UPDATE products
@@ -33,11 +42,9 @@ module.exports = function(app){
         req.body,
         {
             where: {
-            id: req.body.id
+              id: req.body.id
             }
-        }).then(function(dbProducts) {
-        res.json(dbProducts);
-        });
+        }).then(dbProducts => res.json(dbProducts));
     });
 
 };
