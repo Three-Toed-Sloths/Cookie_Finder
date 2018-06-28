@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const User = sequelize.define("Products", {
+    const User = sequelize.define("Login", {
         first_name: {
             type: DataTypes.STRING(100),
             allowNull: false,
@@ -31,6 +31,10 @@ module.exports = function(sequelize, DataTypes) {
                 len: [6,255]
             }
         },
+        seller_account: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }
     });
     return User;
 }

@@ -4,9 +4,7 @@ $(document).ready(function() {
     // my goal is to have all click listeners in one spot for organizational purposes and clean code.
     // Click listeners
     $('#addSeller').on('click', handleNewSeller);
-
-
-
+    $('.viewSellers').on('click', viewAllSellers);
 
 
 
@@ -18,22 +16,34 @@ $(document).ready(function() {
 
         // input field # for newSeller form
         const sellerInfo = $('#sellerName').val().trim();
+        // !!!!!!! need to get input val for email, city, etc.
 
         // check if works? (below)
         // goal is to check if sellerInfo is empty string or not.
         // I believe empty strings are falsey
         // may need to have (sellerInfo === '')
-        if(!sellerInfo){
-            return;
-            // will also have to add an else if for repeated names
-            // if a new seller name already exists, we must alert seller name already taken
-                // this is where usernames would come in handy.
-        } else {
+        // if(!sellerInfo){
+        //     return;
+        //     // will also have to add an else if for repeated names
+        //     // if a new seller name already exists, we must alert seller name already taken
+        //         // this is where usernames would come in handy.
+        // } else {
+        //     const newSellerObj = {
+        //         name: sellerInfo
+        //     }
+        //     newSeller(newSellerObj);
+        // };
+        if(sellerInfo) {
             const newSellerObj = {
-                name: sellerInfo
+                //need to add email, city, lat, lng
+                seller_name: sellerInfo,
+                email: sellerEmail,
+                city: sellerCity,
+                lat: latitude,
+                lng: longitude
             }
-            newSeller(newSellerObj);
-        };
+            newSeller(newSellerObj)
+        }
         
     };
 
@@ -64,7 +74,7 @@ $(document).ready(function() {
     // View seller by id
     function viewSellerById(id){
 
-        if(!NaN(id)){
+        if(!isNaN(id)){
             const sellerId = id;
             $.get('/api/sellers/' + sellerId, function(data){
                 console.log(data);
@@ -76,6 +86,7 @@ $(document).ready(function() {
             });
         }
     };
+
 
 
 });

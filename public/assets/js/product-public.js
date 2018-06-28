@@ -42,7 +42,7 @@ $(document).ready(function() {
     // View product by id
     function viewProductById(id){
 
-        if(!NaN(id)){
+        if(!isNaN(id)){
             const productId = id;
             $.get('/api/products/' + productId, function(data){
                 console.log(data);
