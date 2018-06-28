@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Three-Toed-Sloths/project_2#readme",
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
