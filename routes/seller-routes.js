@@ -3,21 +3,20 @@ const db = require("../models");
 module.exports = function(app){
     // GET all sellers
     app.get("/api/sellers", function(req, res){
-        db.Seller.findAll({}).then(function(dbSellers){
-            res.json(dbSellers);
-        });
+        db.Seller.findAll({}).then(dbSellers => res.json(dbSellers));
     });
-
 
     // GET seller by ID
     app.get("/api/sellers/:id", function(req, res) {
         db.Seller.findOne({
             where: {
                 id: req.params.id
-            }
-            }).then(function(dbSeller) {
-            res.json(dbSeller);
-        });
+            },
+            // allows to see what products they are selling and how much
+            include: [db.Products]
+
+        }).then(dbSellers => res.json(dbSellers));
+        
     });
 
     // GET seller by city
@@ -26,19 +25,16 @@ module.exports = function(app){
             where: {
                 city: req.params.city
             }
-            }).then(function(dbSellers) {
-            res.json(dbSellers);
-        });
+        }).then(dbSellers => res.json(dbSellers));
     });
 
 
     // POST new seller
     app.post("/api/sellers", function(req,res){
         // may not be req.body. Check after AJAX Setup. Need to create object.
-        db.Seller.create(req.body).then(function(dbSellers){
-            res.json(dbSellers);
-        })
-    })
+        db.Sellers.create(req.body)
+          .then(dbSellers => res.json(dbSellers));
+    });
 
 
 
