@@ -4,9 +4,7 @@ $(document).ready(function() {
     // my goal is to have all click listeners in one spot for organizational purposes and clean code.
     // Click listeners
     $('#addSeller').on('click', handleNewSeller);
-
-
-
+    $('.viewSellers').on('click', viewAllSellers);
 
 
 
@@ -76,6 +74,7 @@ $(document).ready(function() {
             });
         }
     };
+
 
 
 });

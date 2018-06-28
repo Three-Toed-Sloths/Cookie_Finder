@@ -12,11 +12,11 @@ module.exports = function(app){
     // GET seller by ID
     app.get("/api/sellers/:id", function(req, res) {
         db.Seller.findOne({
-        where: {
-            id: req.params.id
-        }
-        }).then(function(dbSeller) {
-        res.json(dbSeller);
+            where: {
+                id: req.params.id
+            }
+            }).then(function(dbSeller) {
+            res.json(dbSeller);
         });
     });
 
