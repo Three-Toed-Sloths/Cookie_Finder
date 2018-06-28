@@ -22,7 +22,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-hr {
+hr.division {
     background: linear-gradient(to right, #f5f5f5, #00c853, #f5f5f5)
 }
 

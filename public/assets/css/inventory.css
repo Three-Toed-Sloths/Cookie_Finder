@@ -1,0 +1,99 @@
+#shop {
+    margin-top: 2em;
+}
+
+.card-content {
+    min-height: 250px;
+}
+
+.add-to-cart {
+    position: absolute;
+    left: 23%;
+    bottom: 17px;
+}
+
+#my-cart {
+    position: relative;
+    min-height: 600px;
+}
+
+#cart-bottom {
+    position: absolute;
+    bottom: 17px;
+}
+
+#checkout {
+    left: 51%;
+}
+
+@media only screen and (max-width: 1024px) {
+    #my-cart {
+        min-height: 571px;
+    }
+    .add-to-cart {
+        left: 9%;
+    }
+    #checkout {
+        left: 11%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card-content  {
+        min-height: 200px;
+    }
+    .add-to-cart {
+        left: 37%;
+    }
+    #checkout {
+        left: 155%;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .card-content  {
+        min-height: 230px;
+    }
+    .add-to-cart {
+        left: 24%;
+    }
+    #checkout {
+        left: 60%;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .card-content  {
+        min-height: 230px;
+    }
+    .add-to-cart {
+        left: 21%;
+    }
+    #checkout {
+        left: 48%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .card-content  {
+        min-height: 230px;
+    }
+    .add-to-cart {
+        left: 19%;
+    }
+    #checkout {
+        left: 43%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .card-content  {
+        min-height: 240px;
+    }
+    .add-to-cart {
+        left: 14%;
+    }
+    #checkout {
+        left: 29%;
+    }
+}
