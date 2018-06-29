@@ -34,6 +34,13 @@ $(document).ready(function() {
             
         });
     
+
+        $.post('/sellers/cart', function(context){
+            
+        })
+
+
+
     }
 
 
