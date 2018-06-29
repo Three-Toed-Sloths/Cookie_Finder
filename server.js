@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require('path');
 
 // EXPRESS APP
 const PORT = process.env.PORT || 3000;
@@ -15,7 +16,6 @@ app.use(bodyParser.json());
 
 // STATIC DIRECTORY
 app.use(express.static("public"));
-
 
 // HANDLEBARS
 var exphbs = require("express-handlebars");

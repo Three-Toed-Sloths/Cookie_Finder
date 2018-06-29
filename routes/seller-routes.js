@@ -82,21 +82,23 @@ module.exports = function(app){
                 //     description: productInfo.description,
                 //     stock: productInvInfo.stock
                 // }
-                
+                const productArr = [];
                 const product = {
+                    id: sellerInfo.id,
                     sellerName: sellerInfo.seller_name,
                     sellerCity: sellerInfo.city,
+                    productId: productInfo.id,
                     productName: productInfo.product_name,
                     price: productInfo.price,
                     description: productInfo.description,
                     stock: productInvInfo.stock
                 }
 
-           
-                console.log(product);
+                productArr.push(product);
+                console.log(productArr);
 
 
-                res.render('store', product)
+                res.render('shopInv', {productArr})
             });
             
     });
