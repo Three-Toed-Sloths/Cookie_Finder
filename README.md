@@ -1,10 +1,10 @@
 # project_2
 UCI Bootcamp Project 2
 
-### Technologies Used:
+## Technologies Used:
 * [Materialize](https://materializecss.com/)
 
-### NPMs Used:
+## NPMs Used:
 * [Sendgrid](https://www.npmjs.com/package/@sendgrid/mail)
 * [Body-Parser](https://www.npmjs.com/package/body-parser)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
@@ -13,7 +13,7 @@ UCI Bootcamp Project 2
 * [Mysql2](https://www.npmjs.com/package/mysql2)
 * [Sequelize](https://www.npmjs.com/package/sequelize)
 
-### Styling:
+## Styling:
 Icons from Font Awesome:
 * https://fontawesome.com
 * https://fontawesome.com/license
@@ -23,3 +23,9 @@ Icons from Materialize:
 
 Fonts from Google Fonts:
 * https://fonts.google.com/
+
+ ## Contributors:
+ [Nick Clear](https://github.com/nmclear)<br>
+ [Nirav Patel](https://github.com/nrvpatel03)<br>
+ [Marco Saglietto](https://github.com/Saglietto-Marco)<br>
+ [David Yeung](https://github.com/yeungpirate)<br>
