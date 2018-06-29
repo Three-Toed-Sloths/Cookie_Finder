@@ -8,9 +8,9 @@
                     <div class="input-field col s12" id="cookies-selector">
                         <select multiple class="icons">
                             <option class="cookies-option" value="" disabled selected>Choose your cookies</option>
-                            <option class="cookies-option" value="1" name="Thin Mints" data-icon="https://s3.r29static.com//bin/entry/070/0,0,2000,2400/720x864/1774479/image.png">Thin Mints</option>
-                            <option class="cookies-option" value="2" name="Peanut Butter" data-icon="https://s3.r29static.com//bin/entry/070/0,0,2000,2400/720x864/1774479/image.png">Peanut Butter</option>
-                            <option class="cookies-option" value="3" name="Chocolate Chip" data-icon="https://s3.r29static.com//bin/entry/070/0,0,2000,2400/720x864/1774479/image.png">Option 3</option>
+                                {{#each productArr}}
+                                    {{> storeFront/productList}}
+                                {{/each}}
                         </select>
                     </div>
 

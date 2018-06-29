@@ -1,7 +1,15 @@
 <div class='parallax-container'>
-    <div class='parallax banner'>
-        <img src='../public/assets/images/cookie_heart_banner.jpg' style='position: relative; right: 50px;'>
+    <div class='container'>
+        <div class='seller-info' sellers-id='{{productArr.0.id}}'>
+            <h3>{{productArr.0.sellerName}}</h3>
+            <h5>When: {{when}}</h5> {{!--need a way to reference the location set by the seller--}}
+            <h5>Where: {{productArr.0.sellerCity}}</h5> {{!--need a way to reference the time set by the seller--}}
+        </div>
     </div>
+    <div class='parallax banner'>
+        <img src='/assets/images/cookie_heart_banner.jpg' style='position: relative; right: 50px;'>
+    </div>
+
 </div>
 
 <div class="container" id='shop'>
@@ -10,7 +18,7 @@
             <div class='card' id='inventory-view'>
                 <div class="card-content">
                     <div class="row">
-                        {{#each inventory}}
+                        {{#each productArr}}
                             {{> storeFront/itemCard}}
                         {{/each}}
                     </div>
@@ -24,14 +32,11 @@
                     <div>
                         <h5>My Cart:</h5>
                         <hr>
+                        <ul>
+                            {{> storeFront/cart}}
+                        </ul>
                     </div>
-                    <ul>
-                        {{#each}}
-                            {{#if added}} {{!--need to add a 'added' boolean to items--}}
-                                {{> storeFront/cart}}
-                            {{/if}}
-                        {{/each}}
-                    </ul>
+    
                     <div id='cart-bottom'>
                         <p id='subtotal'>Subtotal: $</p>
                         <p id='tax'>Tax: $</p>
@@ -44,3 +49,5 @@
         </div>
     </div>
 </div>
+
+
