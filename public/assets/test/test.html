@@ -100,11 +100,12 @@
         <div class="row">
             <div class="card col s12 m12">
                 <div class="container">
+                    
                     <div class="row">
 
                         <div class="input-field col s12" id="cookies-selector">
                             <select multiple class="icons">
-                                <option class="cookies-option" value=""  disabled selected>Choose your cookies</option>
+                                <option class="cookies-option" value="" disabled selected>Choose your cookies</option>
                                 <option class="cookies-option" value="1" name="Girl Scout Smores" data-icon="../images/Girl_Scout_Smores.jpg">Girl Scout Smores</option>
                                 <option class="cookies-option" value="2" name="Thin Mints" data-icon="../images/Thin_Mints.png">Thin Mints</option>
                                 <option class="cookies-option" value="3" name="Caramel deLites Samoas" data-icon="../images/Caramel_deLites.png">Caramel deLites Samoas</option>
@@ -115,12 +116,11 @@
                                 <option class="cookies-option" value="8" name="Savannah Smiles" data-icon="../images/Savannah_Smiles.jpg">Savannah Smiles</option>
                                 <option class="cookies-option" value="9" name="Toffee-tastic" data-icon="../images/Toffee-Tastic.jpg">Toffee-tastic</option>
                                 <option class="cookies-option" value="10" name="Thanks-A-Lot" data-icon="../images/Thanks-A-Lot.jpg">Thanks-A-Lot</option>
-                                <option class="cookies-option" value="11" name="Trios" data-icon="../images/Trios.jpg">Trios</option>                                
-                                
+                                <option class="cookies-option" value="11" name="Trios" data-icon="../images/Trios.jpg">Trios</option>
+
                             </select>
                         </div>
 
-                        
 
                         <!-- <div class="input-field col s12" id="cookies-selector">
                                 <select multiple class="icons">
@@ -131,30 +131,50 @@
                                 </select>
                             </div> -->
 
-                        <div class="input-field col s12" id="Cookie-Quantity">
+                        <div class="col s12" id="Cookie-Quantity">
+
+                            <!-- <div class="row">
+                                <div class="input-field col s4 left">
+                                    <input value="1" id="cookiesNum" type="text" class="validate">
+                                    <label class="active" for="cookiesNum">Boxes of ${selectedCookie}</label>
+                                </div>
+                            </div> -->
+
                             <!-- <form action="#">
                                 <p class="range-field">Quantity
                                     <input type="range" id="test5" min="1" max="50" value="1" />
                                 </p>
                             </form> -->
+
+                            
+
                         </div>
 
                     </div>
 
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_name" type="text" class="validate">
+                                <label for="icon_name">Name</label>
+                            </div>
+                        </div>
+                    </form>
 
                     <div class="row">
 
                         <div class="input-field col s12 m5">
-                            <input id="input_text" type="text">
-                            <label for="input_text">Street Address</Address>
+                            <input id="Adrress_text" type="text">
+                            <label for="Adrress_text">Street Address</Address>
                             </label>
                         </div>
 
                         <div class="input-field col s12 m3">
-                                <input id="input_text" type="text">
-                                <label for="input_text">City</Address>
-                                </label>
-                            </div>
+                            <input id="City_text" type="text">
+                            <label for="City_text">City</Address>
+                            </label>
+                        </div>
 
                         <div class="input-field col s6 m2">
                             <select class="browser-default">
@@ -213,8 +233,8 @@
                             </select>
                         </div>
                         <div class="input-field col s6 m2">
-                            <input id="input_text" type="text" data-length="5">
-                            <label for="input_text">Zipcode</label>
+                            <input id="Zipcode_text" type="text" data-length="5">
+                            <label for="Zipcode_text">Zipcode</label>
                         </div>
 
 
@@ -234,7 +254,7 @@
 
                     <div class="row">
                         <div class="center-align">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <button class="green btn waves-effect waves-light" type="submit" name="action">Submit
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -246,7 +266,7 @@
     </div>
 
 
-<!--<div class="container">
+    <!--<div class="container">
 
         <div class="row">
 
