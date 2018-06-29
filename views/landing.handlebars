@@ -93,9 +93,9 @@ function genAddresses(latLngArr,namesArr,emailArr,idArr,map,markers){
     }
 }
 function genMarkers(name,email,address, latlng,id, map,markers){
-    const urlString = "/api/sellers/" + id;
+    const urlString = "/sellers/" + id;
     const content = '<div class="center" style="width: 270px;">'+
-    '<h5>Seller Name: '+ name + '</h5>'+
+    '<h6 style="font-size: 24px">Seller Name: '+ name + '</h6>'+
     '<div id="bodyContent">'+
     '<h6>Email: '+ email + '</h6>' +
      '<h6>Address: ' + address + '</h6>' +
