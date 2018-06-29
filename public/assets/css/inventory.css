@@ -63,7 +63,10 @@
 }
 
 @media only screen and (max-width: 415px) {
-    .card-content  {
+    .seller-info {
+        margin-left: 50px;
+    }
+    .card-content {
         min-height: 230px;
     }
     .add-to-cart {
@@ -75,6 +78,9 @@
 }
 
 @media only screen and (max-width: 376px) {
+    .seller-info {
+        margin-left: 25px;
+    }
     .card-content  {
         min-height: 230px;
     }
