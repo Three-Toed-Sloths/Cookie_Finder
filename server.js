@@ -16,6 +16,12 @@ app.use(bodyParser.json());
 // STATIC DIRECTORY
 app.use(express.static("public"));
 
+//Express
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars",exphbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
 //======================================================================================
 // ROUTES
 //======================================================================================

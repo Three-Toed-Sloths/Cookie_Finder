@@ -36,7 +36,9 @@ module.exports = function(app){
           .then(dbSellers => res.json(dbSellers));
     });
 
+    app.get("/", function(req,res){
+        res.render("landing");
+    })
 
-
-
+    
 };

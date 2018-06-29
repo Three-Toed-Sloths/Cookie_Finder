@@ -4,8 +4,8 @@
 
         <div class="card large">
             <div class="container">
-                <div id="map">
-
+                <div id="map" style="width: 960px; height: 400px;">
+                    
                 </div>
             </div>
         </div>
@@ -17,3 +17,109 @@
     </div>
 
 </div>
+<script>
+    var map, infoWindow;
+    var markers = [];
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+        geocoder = new google.maps.Geocoder();
+        let pos = {};
+        let city;
+        let state;
+        
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+            map.setZoom(10);
+            geocoder.geocode({'location':pos},function(results,status){
+                console.log(results);
+                if(status === 'OK'){
+                    if(results[0]){
+                        const res = results[0].address_components;
+                        for(let i = 0; i<res.length; i++){
+                            for(let j = 0; j<res[i].types.length; j++){
+                                if(res[i].types[j] === 'sublocality' || res[i].types[j] === 'locality'){
+                                    city = res[i].long_name;
+                                }else if(res[i].types[j] === 'administrative_area_level_1'){
+                                    state = res[i].short_name;
+                                }
+                            }
+                        }
+                        console.log(city);
+                        console.log(state);
+                        getSellers(city,state,geocoder,map,markers);
+                    }
+                }
+            });
+        });
+    }
+        
+        //get database city
+        
+}
+function getSellers(city, state, geocoder,map,markers){
+    let latLngArr = [];
+    let namesArr = [];
+    let emailArr = [];
+
+    $.get("/api/sellers/city/" + city + "," + state, function(data){
+        if(data){
+            for(let i = 0; i<data.length; i++){
+                const latlngObj = {lat: data[i].lat, lng: data[i].lng};
+                latLngArr.push(latlngObj);
+                namesArr.push(data[i].seller_name);
+                emailArr.push(data[i].email);
+            }
+        genAddresses(geocoder,latLngArr,namesArr,emailArr,map,markers);
+        }
+
+    });
+}
+function genAddresses(geocoder,latLngArr,namesArr,emailArr, map,markers){
+    for(let i = 0; i<latLngArr; i++){
+        geocoder.geocode({'location': latLngArr[i]}, function(results, status){
+            if(status === 'OK'){
+                if(results[0]){
+                    genMarkers(namesArr[i],emailArr[i],results[0].formatted_address,map,markers);
+                }
+            }
+        });
+    }
+}
+function genMarkers(name,email,address, latlng, map,markers){
+    const content = '<div id="content">'+
+    '<h1>Seller Name: '+ name + '</h1>'+
+    '<div id="bodyContent">'+
+    '<h2>Email: </h2>'+ email +
+     '<h3>Address: ' + address + '</h3>' +
+    '</div>'+
+    '</div>';
+    const infoWindow = new google.maps.InfoWindow({
+        content: content
+    });
+    const marker = new google.maps.Marker({
+        position: latlng,
+        map: map
+    });
+    marker.addListener('mouseenter',function(){
+        infoWindow.open(map,marker);
+    });
+    marker.addListener("mouseout",function(){
+        infoWindow.close(map,marker);
+    });
+    markers.push(marker);
+    console.log("made it");
+}
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU&callback=initMap">
+</script>
