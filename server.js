@@ -33,8 +33,9 @@ require("./routes/inventory-routes.js")(app);
 //======================================================================================
 // SYNC
 //======================================================================================
-db.sequelize.sync({ force: true }).then(function(){
+db.sequelize.sync().then(function(){
     app.listen(PORT, function(){
         console.log("listening at localhost:", PORT)
     });
 });
+//{ force: true }

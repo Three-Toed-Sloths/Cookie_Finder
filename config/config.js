@@ -5,7 +5,7 @@ module.exports = {
         development: {
           username: "root",
           password: "root",
-          database: "girlScoutStore_DB",
+          database: "girlscoutstore_db",
           host: "127.0.0.1",
           dialect: "mysql"
         },
@@ -25,3 +25,4 @@ module.exports = {
         }
 
 }
+console.log("connected");

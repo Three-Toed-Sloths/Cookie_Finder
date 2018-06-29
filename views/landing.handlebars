@@ -56,7 +56,7 @@
                         }
                         console.log(city);
                         console.log(state);
-                        getSellers(city,state,geocoder,map,markers);
+                        getSellers(city,state,map,markers);
                     }
                 }
             });
@@ -66,30 +66,36 @@
         //get database city
         
 }
-function getSellers(city, state, geocoder,map,markers){
+function getSellers(city, state,map,markers){
     let latLngArr = [];
     let namesArr = [];
     let emailArr = [];
 
     $.get("/api/sellers/city/" + city + "," + state, function(data){
         if(data){
+            console.log(data);
             for(let i = 0; i<data.length; i++){
                 const latlngObj = {lat: data[i].lat, lng: data[i].lng};
                 latLngArr.push(latlngObj);
                 namesArr.push(data[i].seller_name);
                 emailArr.push(data[i].email);
             }
-        genAddresses(geocoder,latLngArr,namesArr,emailArr,map,markers);
+        genAddresses(latLngArr,namesArr,emailArr,map,markers);
         }
 
     });
 }
-function genAddresses(geocoder,latLngArr,namesArr,emailArr, map,markers){
-    for(let i = 0; i<latLngArr; i++){
-        geocoder.geocode({'location': latLngArr[i]}, function(results, status){
+function genAddresses(latLngArr,namesArr,emailArr, map,markers){
+    console.log(latLngArr);
+    console.log(namesArr);
+    console.log(emailArr);
+    for(let i = 0; i<latLngArr.length; i++){
+        console.log(latLngArr[i]);
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({'location': {lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)}}, function(results, status){
             if(status === 'OK'){
                 if(results[0]){
-                    genMarkers(namesArr[i],emailArr[i],results[0].formatted_address,map,markers);
+                    genMarkers(namesArr[i],emailArr[i],results[0].formatted_address,{lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)},map,markers);
                 }
             }
         });
@@ -97,10 +103,11 @@ function genAddresses(geocoder,latLngArr,namesArr,emailArr, map,markers){
 }
 function genMarkers(name,email,address, latlng, map,markers){
     const content = '<div id="content">'+
-    '<h1>Seller Name: '+ name + '</h1>'+
+    '<h4>Seller Name: '+ name + '</h4>'+
     '<div id="bodyContent">'+
-    '<h2>Email: </h2>'+ email +
-     '<h3>Address: ' + address + '</h3>' +
+    '<h6>Email: '+ email + '</h6>' +
+     '<h6>Address: ' + address + '</h6>' +
+     '<h6>Store Page: </h6>' +
     '</div>'+
     '</div>';
     const infoWindow = new google.maps.InfoWindow({
@@ -110,11 +117,10 @@ function genMarkers(name,email,address, latlng, map,markers){
         position: latlng,
         map: map
     });
-    marker.addListener('mouseenter',function(){
+    marker.addListener('click',function(){
         infoWindow.open(map,marker);
-    });
-    marker.addListener("mouseout",function(){
-        infoWindow.close(map,marker);
+        map.setCenter(latlng);
+        map.setZoom(12);
     });
     markers.push(marker);
     console.log("made it");
