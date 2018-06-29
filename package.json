@@ -4,7 +4,8 @@
   "description": "UCI Bootcamp Project 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "state": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0"
+  },
+  "engines": {
+    "node": "^9.5.0"
   }
 }
