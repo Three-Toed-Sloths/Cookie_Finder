@@ -66,7 +66,6 @@ module.exports = function(app){
                 where: {
                     id: req.params.id
                 },
-                // allows to see what products they are selling and how much
                 include: [db.Products]
     
             }).then(dbSellers => {

@@ -47,4 +47,30 @@ module.exports = function(app){
         }).then(dbProducts => res.json(dbProducts));
     });
 
+
+
+
+
+    //display products
+    app.get("/products", function(req, res) {
+        db.Products.findAll({}).then(dbProducts => {
+
+            const productArr = [];
+
+            for(let i = 0; i < dbProducts.length; i++){
+
+                const productInfo = dbProducts[i].dataValues;
+
+                const product = {
+                    id: productInfo.id,
+                    name: productInfo.product_name,
+                    price: productInfo.price,
+                    description: productInfo.description,
+                }
+                productArr.push(product);
+            }
+
+            res.render('inventory', {productArr})
+        });
+    });
 };
