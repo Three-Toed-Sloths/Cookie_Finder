@@ -4,8 +4,8 @@ module.exports = {
 
         development: {
           username: "root",
-          password: "root",
-          database: "girlscoutstore_db",
+          password: process.env.DB_PASSWORD,
+          database: "girlScoutStore_DB",
           host: "127.0.0.1",
           dialect: "mysql"
         },
