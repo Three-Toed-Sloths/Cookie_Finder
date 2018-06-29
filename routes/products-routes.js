@@ -52,7 +52,7 @@ module.exports = function(app){
 
 
     //display products
-    app.get("/products", function(req, res) {
+    app.get("/signup", function(req, res) {
         db.Products.findAll({}).then(dbProducts => {
 
             const productArr = [];

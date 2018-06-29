@@ -28,13 +28,13 @@
                 <div class="row">
 
                     <div class="input-field col s12 m8">
-                        <input id="input_text" type="text">
-                        <label for="input_text">Street Address</Address>
+                        <input id="input_address" type="text">
+                        <label for="input_address">Street Address</Address>
                         </label>
                     </div>
 
                     <div class="input-field col s6 m2">
-                        <select class="browser-default">
+                        <select id="input_state" class="browser-default">
                             <option value="" disabled selected>State</option>
                             <option value="AL">AL</option>
                             <option value="AK">AK</option>
@@ -90,8 +90,8 @@
                         </select>
                     </div>
                     <div class="input-field col s6 m2">
-                        <input id="input_text" type="text" data-length="5">
-                        <label for="input_text">Zipcode</label>
+                        <input id="input_zipcode" type="text" data-length="5">
+                        <label for="input_zipcode">Zipcode</label>
                     </div>
 
 
@@ -121,3 +121,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    const zipcode = $("#input_zipcode").val();
+    const streetAdd = $("#input_address").val();
+    const state = $("#input_state").val();
+    
+    function initMap(){
+        const geocoder = new google.maps.Geocoder();
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU&callback=initMap">
+</script>
