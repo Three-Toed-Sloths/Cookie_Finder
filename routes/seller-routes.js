@@ -70,38 +70,29 @@ module.exports = function(app){
                 include: [db.Products]
     
             }).then(dbSellers => {
-
-                const sellerInfo = dbSellers.dataValues
-                const productInfo = sellerInfo.Products[0].dataValues;
-                const productInvInfo = productInfo.Inventory.dataValues;
-
-                // const product = {
-                //     sellerName: sellerInfo.seller_name,
-                //     productName: productInfo.product_name,
-                //     price: productInfo.price,
-                //     description: productInfo.description,
-                //     stock: productInvInfo.stock
-                // }
+                
                 const productArr = [];
-                const product = {
-                    id: sellerInfo.id,
-                    sellerName: sellerInfo.seller_name,
-                    sellerCity: sellerInfo.city,
-                    productId: productInfo.id,
-                    productName: productInfo.product_name,
-                    price: productInfo.price,
-                    description: productInfo.description,
-                    stock: productInvInfo.stock
+                const sellerInfo = dbSellers.dataValues;
+
+                for(let i = 0; i < sellerInfo.Products.length; i++){
+
+                    const productInfo = sellerInfo.Products[i].dataValues;
+                    const productInvInfo = productInfo.Inventory.dataValues;
+
+                    const product = {
+                        id: sellerInfo.id,
+                        sellerName: sellerInfo.seller_name,
+                        sellerCity: sellerInfo.city,
+                        productId: productInfo.id,
+                        productName: productInfo.product_name,
+                        price: productInfo.price,
+                        description: productInfo.description,
+                        stock: productInvInfo.stock
+                    }
+                    productArr.push(product);
                 }
-
-                productArr.push(product);
-                console.log(productArr);
-
 
                 res.render('shopInv', {productArr})
             });
-            
     });
-
-
 };
