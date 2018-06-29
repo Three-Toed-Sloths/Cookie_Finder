@@ -38,26 +38,23 @@ module.exports = function(app){
 
 
 
+    // app.get("/", function(req, res){
+    //     db.Seller.findAll({}).then(dbSellers => {
+    //         const sellerArr = [];
+    //         for(let i = 0; i < dbSellers.length; i++){
+    //             let sellerInfo = dbSellers[i].dataValues;
 
-
-
-    app.get("/", function(req, res){
-        db.Seller.findAll({}).then(dbSellers => {
-            const sellerArr = [];
-            for(let i = 0; i < dbSellers.length; i++){
-                let sellerInfo = dbSellers[i].dataValues;
-
-                const seller = {
-                    name: sellerInfo.seller_name,
-                    city: sellerInfo.city
-                }
-                sellerArr.push(seller)
-                // console.log(seller)
-            }
-            console.log(sellerArr);
-            res.render('store', sellerArr);
-        })
-    });
+    //             const seller = {
+    //                 name: sellerInfo.seller_name,
+    //                 city: sellerInfo.city
+    //             }
+    //             sellerArr.push(seller)
+    //             // console.log(seller)
+    //         }
+    //         console.log(sellerArr);
+    //         res.render('store', sellerArr);
+    //     })
+    // });
 
 
    
