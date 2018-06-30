@@ -28,8 +28,8 @@ app.set("view engine", "handlebars");
 require("./routes/seller-routes.js")(app);
 require("./routes/products-routes.js")(app);
 require("./routes/inventory-routes.js")(app);
-require("./routes/about-routes.js")(app);
 require("./routes/email-routes.js")(app);
+require("./routes/about-routes.js")(app);
 
 
 //======================================================================================

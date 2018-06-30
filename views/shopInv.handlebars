@@ -2,8 +2,8 @@
     <div class='container'>
         <div class='seller-info' sellers-id='{{productArr.0.id}}'>
             <h3>{{productArr.0.sellerName}}</h3>
-            <h5>When: {{when}}</h5> {{!--need a way to reference the location set by the seller--}}
-            <h5>Where: {{productArr.0.sellerCity}}</h5> {{!--need a way to reference the time set by the seller--}}
+            <h5>When: {{when}}</h5>
+            <h5>Where: {{productArr.0.sellerCity}}</h5>
         </div>
     </div>
     <div class='parallax banner'>
@@ -44,7 +44,7 @@
                         <p id='tax'>Tax: $<span id="cartTaxTotal">0</span></p>
                         <p id='total'>Total: $<span id="cartTotal">0</span></p>
                         <br>
-                        <a class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
+                        <a href="/order" class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
                     </div>
                 </div>
             </div>

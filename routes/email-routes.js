@@ -4,15 +4,36 @@ require('dotenv').config();
 module.exports = function(app){
     app.post("/order", function(req, res){
         
+        const sellerInfo = req.body.sellerInfo;
         const cartList = req.body.cartList;
+        const sellerId = req.body.sellerId;
+
         console.log(cartList);
+        console.log(sellerInfo);
+        console.log(sellerId);
 
+
+        
         sendEmail(cartList);
-
-
-
-        // res.render('order');
+        // $.get('/order', {sellerInfo});
     });
+
+
+
+    // app.get('/order', function(req, res){
+    //     const sellerInfo = req.body.sellerInfo;
+    //     console.log(req.body)
+    //     // res.render('order', {sellerInfo});
+    // })
+
+ 
+    app.get('/order', function(req, res){
+        // console.log(req.body);
+        res.render('order');
+        // res.render('order', {sellerInfo});
+    })
+
+
 
     function sendEmail(items){
         const sgMail = require('@sendgrid/mail');

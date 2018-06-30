@@ -1,50 +1,37 @@
 
 $(document).ready(function() {
 
-  // require('dotenv').config();
 
   $('#checkout').on('click', checkOut);
 
 
     function checkOut(){
-      event.preventDefault();
+      // event.preventDefault();
 
-      
+      const sellerInfo = $('.seller-info').html().trim();
       const cartList = $('#cartList').html().trim();
-      console.log(cartList);
+
+      const sellerId = $('.seller-info').attr('sellers-id').trim();
+      console.log(sellerId);
+
+
+      // console.log(cartList);
+
+
+    //  const seller = {sellerInfo};
+
+
       // sendEmail(sellerEmail, sellerName);
       // sendEmail(cartList);
 
 
-      $.post('/order', {cartList});
-
+      $.post('/order', {cartList, sellerInfo, sellerId});
+      // $.get('/order', {sellerInfo});
+      // $.get('/order', function(){
+      //   console.log('yip yip');
+      // });
+   
 
     }
-
-
-  // function sendEmail(list){
-  
-  // };
-
-  // function sendEmail(cartList){
-  //   const sgMail = require('@sendgrid/mail');
-  //   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  
-  //   const msg = {
-  //     to: 'nickclear22@gmail.com',
-  //     from: 'cookiesellerproject@gmail.com',
-  //     // subject: `${sellerName} - New Cookie Order`,
-  //     // text: `${sellerName} - New Cookie Order`,
-  //     subject: `New Cookie Order`,
-  //     text: `Text of New Cookie Order`,
-  //     // html: '<strong>Bring the cookies in!</strong>',
-  //     html: `<ul>${cartList}</ul>`,
-  //   };
-  
-  //   sgMail.send(msg);
-
-  // }
-
-  
 
 });
