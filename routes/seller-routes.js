@@ -36,9 +36,9 @@ module.exports = function(app){
           .then(dbSellers => res.json(dbSellers));
     });
 
-    app.get("/", function(req,res){
-        res.render("landing");
-    })
+    // app.get("/", function(req,res){
+    //     res.render("landing");
+    // })
 
 
     // app.get("/", function(req, res){
@@ -59,16 +59,16 @@ module.exports = function(app){
     //     })
     // });
 
-    app.post("/sellers/:id", function(req,res){
+    // app.post("/sellers/:id", function(req,res){
         
-        const cartProduct = req.body;
+    //     const cartProduct = req.body;
 
-        const cartArr = [];
-        cartArr.push(cartProduct);
-        console.log(cartArr);
-        res.render('shopInv', {cartArr})
+    //     const cartArr = [];
+    //     cartArr.push(cartProduct);
+    //     console.log(cartArr);
+    //     res.render('shopInv', {cartArr})
 
-    })
+    // })
    
     app.get("/sellers/:id", function(req, res) {
             db.Seller.findOne({
