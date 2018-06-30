@@ -59,7 +59,16 @@ module.exports = function(app){
     //     })
     // });
 
+    app.post("/sellers/:id", function(req,res){
+        
+        const cartProduct = req.body;
 
+        const cartArr = [];
+        cartArr.push(cartProduct);
+        console.log(cartArr);
+        res.render('shopInv', {cartArr})
+
+    })
    
     app.get("/sellers/:id", function(req, res) {
             db.Seller.findOne({
@@ -91,7 +100,17 @@ module.exports = function(app){
                     productArr.push(product);
                 }
 
+
+                // const cartArr = [
+                //     { 
+                //         cartProductId: '2',
+                //         cartProductName: 'Thin Mints®',
+                //         cartProductPrice: '4.00'
+                //     }
+                // ];
+
                 res.render('shopInv', {productArr})
+                // res.render('shopInv', {productArr, cartArr})
             });
     });
 };

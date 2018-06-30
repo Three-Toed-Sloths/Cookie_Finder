@@ -32,15 +32,17 @@
                     <div>
                         <h5>My Cart:</h5>
                         <hr>
-                        <ul>
-                            {{> storeFront/cart}}
+                        <ul id="cartList">
+                            {{#each cartArr}}
+                                {{> storeFront/cart}}
+                            {{/each}}
                         </ul>
                     </div>
     
                     <div id='cart-bottom'>
-                        <p id='subtotal'>Subtotal: $</p>
-                        <p id='tax'>Tax: $</p>
-                        <p id='total'>Total: $</p>
+                        <p id='subtotal'>Subtotal: $<span id="cartSubTotal">0</span></p>
+                        <p id='tax'>Tax: $<span id="cartTaxTotal">0</span></p>
+                        <p id='total'>Total: $<span id="cartTotal">0</span></p>
                         <br>
                         <a class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
                     </div>
