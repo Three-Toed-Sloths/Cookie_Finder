@@ -13,6 +13,11 @@
     font-family: 'Playfair Display', serif;
 }
 
+h1,
+.brand-logo {
+    font-family: 'Playfair Display', serif;
+}
+
 #parallax-about {
     margin-top: 2.5em;
 }
@@ -60,7 +65,7 @@ h5 {
 }
 
 @media only screen and (max-width: 600px) {
-    #nav-logo {
+    .brand-logo {
         margin-top: 17%;
     }
 }
