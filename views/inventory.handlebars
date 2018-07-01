@@ -14,18 +14,31 @@
                         </select>
                     </div>
 
-                    <div class="input-field col s12" id="Cookie-Quantity">
-                        <form action="#">
-                            <p class="range-field">Quantity
-                                <input type="range" id="test5" min="1" max="50" value="1" />
-                            </p>
-                        </form>
-                    </div>
+        <div class="row">
+            <div class="card col s12 m12">
+                <div class="container">
+                    
+                    <div class="row">
 
-                </div>
+                        <div class="input-field col s12" id="cookies-selector">
+                            <select multiple class="icons">
+                                <option class="cookies-option" value="" disabled selected>Choose your cookies</option>
+                                <option class="cookies-option" value="1" name="Girl Scout Smores" data-icon="../images/Girl_Scout_Smores.jpg">Girl Scout Smores</option>
+                                <option class="cookies-option" value="2" name="Thin Mints" data-icon="../images/Thin_Mints.png">Thin Mints</option>
+                                <option class="cookies-option" value="3" name="Caramel deLites Samoas" data-icon="../images/Caramel_deLites.png">Caramel deLites Samoas</option>
+                                <option class="cookies-option" value="4" name="Peanut Butter Patties/ Tagalongs" data-icon="../images/Peanut_Butter_Patties.png">Peanut Butter Patties/ Tagalongs</option>
+                                <option class="cookies-option" value="5" name="Shortbread/Trefoils" data-icon="../images/Shortbread.png">Shortbread/Trefoils</option>
+                                <option class="cookies-option" value="6" name="Do-si-dos / Peanut Butter Sandwich" data-icon="../images/Do-si-dos.jpg">Do-si-dos / Peanut Butter Sandwich</option>
+                                <option class="cookies-option" value="7" name="Lemonades™" data-icon="../images/Lemonades.jpg">Lemonades</option>
+                                <option class="cookies-option" value="8" name="Savannah Smiles" data-icon="../images/Savannah_Smiles.jpg">Savannah Smiles</option>
+                                <option class="cookies-option" value="9" name="Toffee-tastic" data-icon="../images/Toffee-Tastic.jpg">Toffee-tastic</option>
+                                <option class="cookies-option" value="10" name="Thanks-A-Lot" data-icon="../images/Thanks-A-Lot.jpg">Thanks-A-Lot</option>
+                                <option class="cookies-option" value="11" name="Trios" data-icon="../images/Trios.jpg">Trios</option>
 
+                            </select>
+                        </div>
 
-                <div class="row">
+                        <div class="col s12" id="Cookie-Quantity">
 
                     <div class="input-field col s12 m8">
                         <input id="input_address" type="text">
@@ -94,29 +107,115 @@
                         <label for="input_zipcode">Zipcode</label>
                     </div>
 
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_name" type="text" class="validate">
+                                <label for="icon_name">Name</label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+
+                        <div class="input-field col s12 m5">
+                            <input id="Adrress_text" type="text">
+                            <label for="Adrress_text">Street Address</Address>
+                            </label>
+                        </div>
+
+                        <div class="input-field col s12 m3">
+                            <input id="City_text" type="text">
+                            <label for="City_text">City</Address>
+                            </label>
+                        </div>
+
+                        <div class="input-field col s6 m2">
+                            <select class="browser-default">
+                                <option value="" disabled selected>State</option>
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AR">AR</option>
+                                <option value="AZ">AZ</option>
+                                <option value="CA">CA</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DC">DC</option>
+                                <option value="DE">DE</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="HI">HI</option>
+                                <option value="IA">IA</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="MA">MA</option>
+                                <option value="MD">MD</option>
+                                <option value="ME">ME</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MO">MO</option>
+                                <option value="MS">MS</option>
+                                <option value="MT">MT</option>
+                                <option value="NC">NC</option>
+                                <option value="NE">NE</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NV">NV</option>
+                                <option value="NY">NY</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WI">WI</option>
+                                <option value="WV">WV</option>
+                                <option value="WY">WY</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s6 m2">
+                            <input id="Zipcode_text" type="text" data-length="5">
+                            <label for="Zipcode_text">Zipcode</label>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m4">
+                            <input type="text" class="datepicker" placeholder="Date">
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <input type="text" class="timepicker" placeholder="From">
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <input type="text" class="timepicker" placeholder="To">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="center-align">
+                            <button class="green btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
 
                 </div>
-
-                <div class="row">
-                    <div class="input-field col s12 m4">
-                        <input type="text" class="datepicker" placeholder="Date">
-                    </div>
-                    <div class="input-field col s12 m4">
-                        <input type="text" class="timepicker" placeholder="From">
-                    </div>
-                    <div class="input-field col s12 m4">
-                        <input type="text" class="timepicker" placeholder="To">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="center-align">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
