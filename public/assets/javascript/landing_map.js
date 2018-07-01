@@ -1,4 +1,11 @@
 
+
+$('#showMap').on('click', function(){
+    $('#showMap').hide();
+    $('#map').show();
+});
+
+
     //Functions for landing
     function initMap() {
       //create the map
@@ -10,32 +17,34 @@
       });
     
       geocoder1 = new google.maps.Geocoder();
-      let pos = {};
+      let pos = {lat: 33.641558,
+        lng: -117.844800};
+        // let pos = {};
       let state;
     
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
         getState(pos,map,geocoder1,markers);
-        });
-      }else{
-          pos = {
-            lat: 33.641558,
-            lng: -117.844800
-          };
-          getState(pos,map,geocoder1,markers);
-      }       
+      
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(function(position) {
+        //     pos = {
+        //         lat: position.coords.latitude,
+        //         lng: position.coords.longitude
+        //     };
+        //     getState(pos,map,geocoder1,markers);
+        //     });
+        // }else{
+            // pos = {
+            //     lat: 33.641558,
+            //     lng: -117.844800
+            // };
+            // getState(pos,map,geocoder1,markers);
+        // }  
     }
     
     function getState(pos,map,geocoder,markers){
     console.log(pos);
     map.setCenter(pos);
     map.setZoom(9);
-    const trafficLayer = new google.maps.TrafficLayer();
-    trafficLayer.setMap(map);
     geocoder.geocode({'location':pos},function(results,status){
     console.log(results);
         if(status === 'OK'){
