@@ -99,6 +99,7 @@
         }
     
     }
+    //inventory.handlebars
     function genMarkers(name,email,address, latlng,id, map,markers){
         const urlString = "/sellers/" + id;
         const content = '<div class="center" style="width: 270px;">'+

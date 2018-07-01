@@ -1,6 +1,16 @@
 $(document).ready(function() {
 
-    $('#subtotal').val()
+    // ===============
+    // || VARIABLES ||
+    // ===============
+
+    let total = 0;
+
+    // ==========
+    // || MATH ||
+    // ==========
+
+    total 
 
 
 
