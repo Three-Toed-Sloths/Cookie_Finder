@@ -31,13 +31,11 @@ $(document).ready(function() {
                 cartProductPrice: parseInt(data.price)
             }
             console.log(cartProduct);
-            
+            $.post('/sellers/cart', cartProduct);
         });
     
 
-        $.post('/sellers/cart', function(context){
-            
-        })
+        
 
 
 

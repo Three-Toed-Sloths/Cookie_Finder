@@ -7,17 +7,16 @@
 
 </div>
 <script>
-    var map, infoWindow;
-    var markers = [];
+    let map;
+    let markers = [];
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
+          center: {lat: 33.641558, lng: -117.844800},
           zoom: 6
         });
-        infoWindow = new google.maps.InfoWindow;
+        
         geocoder = new google.maps.Geocoder();
         let pos = {};
-        let city;
         let state;
         
         // Try HTML5 geolocation.
@@ -28,7 +27,9 @@
               lng: position.coords.longitude
             };
             map.setCenter(pos);
-            map.setZoom(11);
+            map.setZoom(9);
+            const trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
             geocoder.geocode({'location':pos},function(results,status){
                 console.log(results);
                 if(status === 'OK'){
@@ -36,31 +37,26 @@
                         const res = results[0].address_components;
                         for(let i = 0; i<res.length; i++){
                             for(let j = 0; j<res[i].types.length; j++){
-                                if(res[i].types[j] === 'sublocality' || res[i].types[j] === 'locality'){
-                                    city = res[i].long_name;
-                                }else if(res[i].types[j] === 'administrative_area_level_1'){
+                               if(res[i].types[j] === 'administrative_area_level_1'){
                                     state = res[i].short_name;
                                 }
                             }
                         }
-                        console.log(city);
                         console.log(state);
-                        getSellers(city,state,map,markers);
+                        getSellers(state,map,markers);
                     }
                 }
             });
         });
     }
         
-        //get database city
-        
 }
-function getSellers(city, state,map,markers){
+function getSellers(state,map,markers){
     let latLngArr = [];
     let namesArr = [];
     let emailArr = [];
     let idArr = [];
-    $.get("/api/sellers/city/" + city + "," + state, function(data){
+    $.get("/api/sellers/state/" + state, function(data){
         if(data){
             console.log(data);
             for(let i = 0; i<data.length; i++){
@@ -82,14 +78,20 @@ function genAddresses(latLngArr,namesArr,emailArr,idArr,map,markers){
     console.log(idArr);
     for(let i = 0; i<latLngArr.length; i++){
         console.log(latLngArr[i]);
-        const geocoder = new google.maps.Geocoder();
-        geocoder.geocode({'location': {lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)}}, function(results, status){
-            if(status === 'OK'){
-                if(results[0]){
-                    genMarkers(namesArr[i],emailArr[i],results[0].formatted_address,{lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)},idArr[i],map,markers);
+        //HUGE PROBLEM, GOOGLE MAPS WILL NOT LET US GENERATE MORE THAN 4 REQUESTS at a time in one second!!! SO WE HAVE
+        //A set time out function. But now first 4 markers show up right away, and rest show up lagging behind.
+        //Error Over query limit. NEED THIS GEOCODING FOR ADDRESSES.
+        const geocoder = new google.maps.Geocoder();            
+        setTimeout(function(){
+                geocoder.geocode({'location': {lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)}}, function(results, status){
+                console.log(status);
+                if(status === 'OK'){
+                    if(results[0]){
+                        genMarkers(namesArr[i],emailArr[i],results[0].formatted_address,{lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)},idArr[i],map,markers);
+                    }
                 }
-            }
-        });
+            });
+        },1000 * i); 
     }
 }
 function genMarkers(name,email,address, latlng,id, map,markers){
