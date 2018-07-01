@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    
+    // click listen to add item to cart
     $('.add-to-cart').on('click', addToCart);
 
     function addToCart(){
         event.preventDefault();
 
         const id = $(this).data('id');
-        $.get('/api/products/' + id, function(req,res){
+        $.get(`/api/products/${id}`, function(req,res){
             const cartProduct = {
                 id: id,
                 name: req.product_name,
@@ -21,7 +21,7 @@ $(document).ready(function() {
             let cartTaxTotal = (cartSubTotal * tax).toFixed(2);
             let cartTotal = (cartSubTotal * (1+tax)).toFixed(2);
 
-            $('#cartList').append('<li>' + cartProduct.name + ' - $' + cartProduct.price + '</li>');
+            $('#cartList').append(`<li>${cartProduct.name} - $${cartProduct.price}</li>`);
             $('#cartTaxTotal').text(cartTaxTotal);
             $('#cartSubTotal').text(cartSubTotal.toFixed(2));
             $('#cartTotal').text(cartTotal);

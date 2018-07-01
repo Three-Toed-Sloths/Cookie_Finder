@@ -1,13 +1,13 @@
-const db = require("../models");
+const db = require('../models');
 
 module.exports = function(app){
     // GET all sellers
-    app.get("/api/sellers", function(req, res){
+    app.get('/api/sellers', function(req, res){
         db.Seller.findAll({}).then(dbSellers => res.json(dbSellers));
     });
 
     // GET seller by ID
-    app.get("/api/sellers/:id", function(req, res) {
+    app.get('/api/sellers/:id', function(req, res) {
         db.Seller.findOne({
             where: {
                 id: req.params.id
@@ -20,7 +20,7 @@ module.exports = function(app){
     });
 
     // GET seller by city
-    app.get("/api/sellers/city/:city", function(req, res) {
+    app.get('/api/sellers/city/:city', function(req, res) {
         db.Seller.findAll({
             where: {
                 city: req.params.city
@@ -30,18 +30,18 @@ module.exports = function(app){
 
 
     // POST new seller
-    app.post("/api/sellers", function(req,res){
+    app.post('/api/sellers', function(req,res){
         // may not be req.body. Check after AJAX Setup. Need to create object.
         db.Sellers.create(req.body)
           .then(dbSellers => res.json(dbSellers));
     });
 
-    // app.get("/", function(req,res){
-    //     res.render("landing");
+    // app.get('/', function(req,res){
+    //     res.render('landing');
     // })
 
 
-    // app.get("/", function(req, res){
+    // app.get('/', function(req, res){
     //     db.Seller.findAll({}).then(dbSellers => {
     //         const sellerArr = [];
     //         for(let i = 0; i < dbSellers.length; i++){
@@ -59,7 +59,7 @@ module.exports = function(app){
     //     })
     // });
 
-    // app.post("/sellers/:id", function(req,res){
+    // app.post('/sellers/:id', function(req,res){
         
     //     const cartProduct = req.body;
 
@@ -70,7 +70,7 @@ module.exports = function(app){
 
     // })
    
-    app.get("/sellers/:id", function(req, res) {
+    app.get('/sellers/:id', function(req, res) {
             db.Seller.findOne({
                 where: {
                     id: req.params.id

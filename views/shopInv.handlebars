@@ -13,8 +13,21 @@
 </div>
 
 <div class="container" id='shop'>
+    {{!-- <div class="row">
+        <div class="input-field col s12">
+            <input placeholder="Name" id="buyer" type="text" class="validate">
+            <label for="buyer">Buyer</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+        </div>
+    </div> --}}
     <div class="row">
         <div class='col s12 l8'>
+            
             <div class='card' id='inventory-view'>
                 <div class="card-content">
                     <div class="row">
@@ -44,6 +57,20 @@
                         <p id='tax'>Tax: $<span id="cartTaxTotal">0</span></p>
                         <p id='total'>Total: $<span id="cartTotal">0</span></p>
                         <br>
+
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Name" id="buyer" type="text" class="validate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Email" id="buyerEmail" type="email" class="validate">
+                            </div>
+                        </div>
+
+
                         <a href="/order" class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
                     </div>
                 </div>

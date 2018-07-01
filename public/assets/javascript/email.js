@@ -6,19 +6,20 @@ $(document).ready(function() {
   function checkOut(){
 
     const cartList = $('#cartList').html().trim();
+    const buyer = $('#buyer').val().trim();
+    const buyEmail = $('#buyerEmail').val().trim();
 
-    if(!cartList){
+    if(!cartList || !buyer || !buyEmail){
       event.preventDefault();
     } else {
       const sellerId = $('.seller-info').attr('sellers-id').trim();
       const totalPrice = $('#cartTotal').text().trim();
-      $.post('/order', {cartList, sellerId, totalPrice});
+
+      $.post('/order', {cartList, sellerId, totalPrice, buyer, buyEmail});
     }
 
     // $.get('/order', sellerId);
 
-
-    // if we make a input field for customer name and email we can send email to customer too.
   }
 
 });
