@@ -14,8 +14,6 @@ $(document).ready(function() {
                 name: req.product_name,
                 price: parseInt(req.price)
             }
-  
-            // $.post('/sellers/' + id, cartProduct);
 
             let cartSubTotal = parseInt($('#cartSubTotal').text());
            
@@ -30,7 +28,6 @@ $(document).ready(function() {
             $('#cartSubTotal').text(cartSubTotal.toFixed(2));
             $('#cartTotal').text(cartTotal);
 
-           
         });
     
     }

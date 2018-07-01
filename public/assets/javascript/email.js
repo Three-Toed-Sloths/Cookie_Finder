@@ -6,31 +6,21 @@ $(document).ready(function() {
 
 
     function checkOut(){
-      // event.preventDefault();
+      event.preventDefault();
 
       const sellerInfo = $('.seller-info').html().trim();
+      const sellerName = $('#sellerName').text().trim();
       const cartList = $('#cartList').html().trim();
-
       const sellerId = $('.seller-info').attr('sellers-id').trim();
-      console.log(sellerId);
+      const totalPrice = $('#cartTotal').text().trim();
 
 
-      // console.log(cartList);
 
-
-    //  const seller = {sellerInfo};
-
-
-      // sendEmail(sellerEmail, sellerName);
-      // sendEmail(cartList);
-
-
-      $.post('/order', {cartList, sellerInfo, sellerId});
-      // $.get('/order', {sellerInfo});
-      // $.get('/order', function(){
-      //   console.log('yip yip');
-      // });
-   
+      $.post('/order', {cartList, sellerInfo, sellerName, sellerId, totalPrice});
+    
+      // const test = $.get(`/api/sellers/1`);
+      
+      // console.log(test);
 
     }
 
