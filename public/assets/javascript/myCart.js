@@ -2,8 +2,6 @@ $(document).ready(function() {
     
     $('.add-to-cart').on('click', addToCart);
 
-
-
     function addToCart(){
         event.preventDefault();
 
@@ -29,9 +27,5 @@ $(document).ready(function() {
             $('#cartTotal').text(cartTotal);
 
         });
-    
     }
-
-
-
 });
