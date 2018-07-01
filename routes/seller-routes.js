@@ -19,11 +19,11 @@ module.exports = function(app){
         
     });
 
-    // GET seller by city
-    app.get('/api/sellers/city/:city', function(req, res) {
+    // GET seller by STATE CHANGED FROM CITY FOR TIME BEING.
+    app.get("/api/sellers/state/:state", function(req, res) {
         db.Seller.findAll({
             where: {
-                city: req.params.city
+                state: req.params.state
             }
         }).then(dbSellers => res.json(dbSellers));
     });

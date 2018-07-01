@@ -1,140 +1,124 @@
-<div class="container">
+<div class='container'>
 
-    <div class="row">
-        <div class="card col s12 m12">
-            <div class="container">
-                <div class="row">
+    <div class='card'>
 
-                    <div class="input-field col s12" id="cookies-selector">
-                        <select multiple class="icons">
-                            <option class="cookies-option" value="" disabled selected>Choose your cookies</option>
-                                {{#each productArr}}
-                                    {{> storeFront/productList}}
-                                {{/each}}
-                        </select>
-                    </div>
-
-     
-
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="icon_name" type="text" class="validate">
-                                <label for="icon_name">Name</label>
-                            </div>
-                        </div>
-                    </form>
-
-                    <div class="row">
-
-                        <div class="input-field col s12 m5">
-                            <input id="Adrress_text" type="text">
-                            <label for="Adrress_text">Street Address</Address>
-                            </label>
-                        </div>
-
-                        <div class="input-field col s12 m3">
-                            <input id="City_text" type="text">
-                            <label for="City_text">City</Address>
-                            </label>
-                        </div>
-
-                        <div class="input-field col s6 m2">
-                            <select class="browser-default">
-                                <option value="" disabled selected>State</option>
-                                <option value="AL">AL</option>
-                                <option value="AK">AK</option>
-                                <option value="AR">AR</option>
-                                <option value="AZ">AZ</option>
-                                <option value="CA">CA</option>
-                                <option value="CO">CO</option>
-                                <option value="CT">CT</option>
-                                <option value="DC">DC</option>
-                                <option value="DE">DE</option>
-                                <option value="FL">FL</option>
-                                <option value="GA">GA</option>
-                                <option value="HI">HI</option>
-                                <option value="IA">IA</option>
-                                <option value="ID">ID</option>
-                                <option value="IL">IL</option>
-                                <option value="IN">IN</option>
-                                <option value="KS">KS</option>
-                                <option value="KY">KY</option>
-                                <option value="LA">LA</option>
-                                <option value="MA">MA</option>
-                                <option value="MD">MD</option>
-                                <option value="ME">ME</option>
-                                <option value="MI">MI</option>
-                                <option value="MN">MN</option>
-                                <option value="MO">MO</option>
-                                <option value="MS">MS</option>
-                                <option value="MT">MT</option>
-                                <option value="NC">NC</option>
-                                <option value="NE">NE</option>
-                                <option value="NH">NH</option>
-                                <option value="NJ">NJ</option>
-                                <option value="NM">NM</option>
-                                <option value="NV">NV</option>
-                                <option value="NY">NY</option>
-                                <option value="ND">ND</option>
-                                <option value="OH">OH</option>
-                                <option value="OK">OK</option>
-                                <option value="OR">OR</option>
-                                <option value="PA">PA</option>
-                                <option value="RI">RI</option>
-                                <option value="SC">SC</option>
-                                <option value="SD">SD</option>
-                                <option value="TN">TN</option>
-                                <option value="TX">TX</option>
-                                <option value="UT">UT</option>
-                                <option value="VT">VT</option>
-                                <option value="VA">VA</option>
-                                <option value="WA">WA</option>
-                                <option value="WI">WI</option>
-                                <option value="WV">WV</option>
-                                <option value="WY">WY</option>
-                            </select>
-                        </div>
-                        <div class="input-field col s6 m2">
-                            <input id="Zipcode_text" type="text" data-length="5">
-                            <label for="Zipcode_text">Zipcode</label>
-                        </div>
-
-
-             
-
-                    <div class="row">
-                        <div class="input-field col s12 m4">
-                            <input type="text" class="datepicker" placeholder="Date">
-                        </div>
-                        <div class="input-field col s12 m4">
-                            <input type="text" class="timepicker" placeholder="From">
-                        </div>
-                        <div class="input-field col s12 m4">
-                            <input type="text" class="timepicker" placeholder="To">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="center-align">
-                            <button class="green btn waves-effect waves-light" type="submit" name="action">Submit
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </div>
+        <div class='row'>
+            <div class='col s1'></div>
+            <div class='col s10'>
+                <div class='input-field col s12' id='cookies-selector'>
+                    <select multiple class='icons'>
+                        <option class='cookies-option' value=''disabled selected>Add Cookies</option>
+                        {{#each productArr}}
+                            {{> storeFront/productList}}
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <div class='col s1'></div>
         </div>
+
+        <div class='row'>
+            <div class='col s1'></div>
+            <form class='col s10 m5'>
+                <div class='input-field'>
+                    <i class='material-icons prefix'>account_circle</i>
+                    <input placeholder='Name'id='name' type='text'>
+                    <lable for='name'>Name</lable>
+                </div>
+            </form>
+                <div class='input-field col s10 m5'>
+                    <input placeholder='Street Address' id='street-address' type='text'>
+                    <lable for='street-address'>Street Address</lable>
+                </div>
+            <div class='col s1'></div>
+        </div>
+
+        <div class='row'>
+            <div class='col s1'></div>
+            <div class='input-field col s10 m5'>
+                <input placeholder='City' id='city' type='text'>
+                <lable for='city'>City</lable>
+            </div>
+            <div class='input-field col s2'>
+                <select class="browser-default">
+                    <option value="" disabled selected>State</option>
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AR">AR</option>
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                </select>
+            </div>
+            <div class='input-field col s3'>
+                <input placeholder='Zip Code' id='zip-code' type='text' data-length='5'>
+                <lable for='zip-code'>Zip Code</lable>
+            </div>
+            <div class='col s1'></div>
+        </div>
+
+    <button class='cneter-align green btn waves-effect waves-light' type='submit' name='action'>Submit
+        <i class="material-icons right">send</i>
+    </button>
+
     </div>
+
 </div>
 
-<script>
+{{!-- <script>
     const zipcode = $("#input_zipcode").val();
     const streetAdd = $("#input_address").val();
     const state = $("#input_state").val();
     
     function initMap(){
         const geocoder = new google.maps.Geocoder();
+        //geocode addresses
     }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU&callback=initMap">
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU&callback=initMap"></script>
+
