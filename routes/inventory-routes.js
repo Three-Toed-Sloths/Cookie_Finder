@@ -1,9 +1,9 @@
-const db = require("../models");
+const db = require('../models');
 
 module.exports = function(app){
 
     // GET full inventory
-    app.get("/api/inventory", function(req,res){
+    app.get('/api/inventory', function(req,res){
 
         db.Inventory.findAll({
             // include: [db.Products][db.Seller]
@@ -11,7 +11,7 @@ module.exports = function(app){
     });
 
     // GET inventory by seller
-    app.get("/api/inventory/seller/:id", function(req,res){
+    app.get('/api/inventory/seller/:id', function(req,res){
 
         db.Inventory.findAll({
             where: {
@@ -22,7 +22,7 @@ module.exports = function(app){
     });
 
     // GET inventory by product
-    app.get("/api/inventory/product/:id", function(req,res){
+    app.get('/api/inventory/product/:id', function(req,res){
 
         db.Inventory.findAll({
             where: {
@@ -34,7 +34,7 @@ module.exports = function(app){
 
 
     // POST new inventory
-    app.post("/api/inventory", function(req, res) {
+    app.post('/api/inventory', function(req, res) {
         const newInventory = req.body;
 
         db.Inventory.create({
@@ -46,7 +46,7 @@ module.exports = function(app){
     });
 
     // UPDATE new inventory
-    app.put("/api/inventory/", function(req, res) {
+    app.put('/api/inventory/', function(req, res) {
     
             db.Inventory.update(
                 req.body,
@@ -60,7 +60,7 @@ module.exports = function(app){
 
 
     // DELETE inventory
-    app.delete("/api/inventory/:id", function(req,res){
+    app.delete('/api/inventory/:id', function(req,res){
 
         db.Inventory.destroy({
             where: {

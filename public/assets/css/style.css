@@ -9,12 +9,13 @@
 }
 
 .parallax-header {
-    margin-top: 1.5em;
+    margin-top: 2.5em;
     font-family: 'Playfair Display', serif;
 }
 
-#parallax-about {
-    margin-top: 2.5em;
+h1,
+.brand-logo {
+    font-family: 'Playfair Display', serif;
 }
 
 .parallax-text {
@@ -60,8 +61,8 @@ h5 {
 }
 
 @media only screen and (max-width: 600px) {
-    #nav-logo {
-        margin-top: 17%;
+    #cookie-logo {
+        margin-top: 14%;
     }
 }
 

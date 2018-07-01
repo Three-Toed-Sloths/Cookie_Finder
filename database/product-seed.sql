@@ -1,6 +1,6 @@
 USE girlScoutStore_DB;
 
-USE hh6a8jszedvuj7z9;
+/* USE hh6a8jszedvuj7z9; */
 
 INSERT INTO Products (product_name, price, description) VALUES('Girl Scout Smores®', 6, 'Crunchy graham sandwich cookies with creamy chocolate and marshmallowy filling. CONTAINS: WHEAT | SOY | MILK INGREDIENTS');
 INSERT INTO Products (product_name, price, description) VALUES('Thin Mints®', 4, 'Mint-flavored cookies with a delicious chocolaty coating. CONTAINS: WHEAT | SOY. VEGAN.');

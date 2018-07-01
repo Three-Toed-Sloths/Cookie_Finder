@@ -16,11 +16,12 @@ module.exports = function(sequelize, DataTypes) {
                 isEmail: true
             }
         },
-        city: {
-            type: DataTypes.STRING(100),
+        //CHANGED TO STATE FOR TIME BEING
+        state: {
+            type: DataTypes.STRING(3),
             allowNull: false,
             validate: {
-                len: [1,100]
+                len: [1,3]
             }
         },
         lat: {
