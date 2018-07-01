@@ -1,56 +1,31 @@
 $(document).ready(function() {
-
-    // ===============
-    // || VARIABLES ||
-    // ===============
-
-    let total = 0;
-
-    // ==========
-    // || MATH ||
-    // ==========
-
-    total 
-
-
-
+    // click listen to add item to cart
     $('.add-to-cart').on('click', addToCart);
 
     function addToCart(){
-
-
-        // const cartProduct = {
-        //     cartProductId: $(this).data('id'),
-        //     cartProductName: $(this).data('name'),
-        //     cartProductPrice: parseInt($(this).data('price'))
-        // }
-
-
-        // console.log(cartProduct);
-
-        // res.render('shopInv', cartProduct)
-    
-    
         event.preventDefault();
 
         const id = $(this).data('id');
-        $.get('/api/products/' + id, function(data){
+        $.get(`/api/products/${id}`, function(req,res){
             const cartProduct = {
-                cartProductId: id,
-                cartProductName: data.product_name,
-                cartProductPrice: parseInt(data.price)
+                id: id,
+                name: req.product_name,
+                price: parseInt(req.price)
             }
-            console.log(cartProduct);
-            $.post('/sellers/cart', cartProduct);
+
+            let cartSubTotal = parseInt($('#cartSubTotal').text());
+           
+            cartSubTotal += cartProduct.price;
+
+            const tax = 0.0725;
+            let cartTaxTotal = (cartSubTotal * tax).toFixed(2);
+            let cartTotal = (cartSubTotal * (1+tax)).toFixed(2);
+
+            $('#cartList').append(`<li>${cartProduct.name} - $${cartProduct.price}</li>`);
+            $('#cartTaxTotal').text(cartTaxTotal);
+            $('#cartSubTotal').text(cartSubTotal.toFixed(2));
+            $('#cartTotal').text(cartTotal);
+
         });
-    
-
-        
-
-
-
     }
-
-
-
 });

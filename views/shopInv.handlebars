@@ -1,9 +1,9 @@
 <div class='parallax-container'>
     <div class='container'>
         <div class='seller-info' sellers-id='{{productArr.0.id}}'>
-            <h3>{{productArr.0.sellerName}}</h3>
-            <h5>When: {{when}}</h5> {{!--need a way to reference the location set by the seller--}}
-            <h5>Where: {{productArr.0.sellerCity}}</h5> {{!--need a way to reference the time set by the seller--}}
+            <h3 id="sellerName">{{productArr.0.sellerName}}</h3>
+            <h5>When: {{when}}</h5>
+            <h5>Where: {{productArr.0.sellerCity}}</h5>
         </div>
     </div>
     <div class='parallax banner'>
@@ -15,6 +15,7 @@
 <div class="container" id='shop'>
     <div class="row">
         <div class='col s12 l8'>
+            
             <div class='card' id='inventory-view'>
                 <div class="card-content">
                     <div class="row">
@@ -32,15 +33,31 @@
                     <div>
                         <h5>My Cart:</h5>
                         <hr>
-                        <ul>
-                            {{> storeFront/cart}}
+                        <ul id="cartList">
+                            {{#each cartArr}}
+                                {{> storeFront/cart}}
+                            {{/each}}
                         </ul>
                     </div>
     
                     <div id='cart-bottom'>
-                        <p id='total'>Total: $</p>
+                        <p id='subtotal'>Subtotal: $<span id="cartSubTotal">0</span></p>
+                        <p id='tax'>Tax: $<span id="cartTaxTotal">0</span></p>
+                        <p id='total'>Total: $<span id="cartTotal">0</span></p>
                         <br>
-                        <a class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Name" id="buyer" type="text" class="validate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Email" id="buyerEmail" type="email" class="validate">
+                            </div>
+                        </div>
+
+                        <a href="/order" class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
                     </div>
                 </div>
             </div>

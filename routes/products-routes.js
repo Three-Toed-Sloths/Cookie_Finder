@@ -1,15 +1,15 @@
-const db = require("../models");
+const db = require('../models');
 
 module.exports = function(app){
 
     // GET all products
-    app.get("/api/products", function(req,res){
+    app.get('/api/products', function(req,res){
         db.Products.findAll({})
         .then(dbProducts => res.json(dbProducts));
     });
 
     // GET product by ID
-    app.get("/api/products/:id", function(req, res) {
+    app.get('/api/products/:id', function(req, res) {
         db.Products.findOne({
             where: {
                 id: req.params.id
@@ -22,13 +22,13 @@ module.exports = function(app){
 
 
     // POST new products (may not need)
-    app.post("/api/products", function(req, res){
+    app.post('/api/products', function(req, res){
         db.Products.create(req.body)
          .then(dbProducts => res.json(dbProducts));
     });
 
     // DELETE product
-    app.delete("/api/products/:id", function(req, res) {
+    app.delete('/api/products/:id', function(req, res) {
         db.Products.destroy({
         where: {
             id: req.params.id
@@ -37,7 +37,7 @@ module.exports = function(app){
     });
 
     // UPDATE products
-    app.put("/api/products", function(req, res) {
+    app.put('/api/products', function(req, res) {
         db.Products.update(
         req.body,
         {
@@ -52,7 +52,7 @@ module.exports = function(app){
 
 
     //display products
-    app.get("/signup", function(req, res) {
+    app.get('/signup', function(req, res) {
         db.Products.findAll({}).then(dbProducts => {
 
             const productArr = [];

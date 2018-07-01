@@ -18,7 +18,6 @@ app.use(express.static("public"));
 
 // HANDLEBARS
 var exphbs = require("express-handlebars");
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -28,6 +27,7 @@ app.set("view engine", "handlebars");
 require("./routes/seller-routes.js")(app);
 require("./routes/products-routes.js")(app);
 require("./routes/inventory-routes.js")(app);
+require("./routes/email-routes.js")(app);
 require("./routes/about-routes.js")(app);
 
 
