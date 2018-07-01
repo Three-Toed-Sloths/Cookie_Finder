@@ -1,4 +1,11 @@
 
+
+$('#showMap').on('click', function(){
+    $('#showMap').hide();
+    $('#map').show();
+});
+
+
     //Functions for landing
     function initMap() {
       //create the map
