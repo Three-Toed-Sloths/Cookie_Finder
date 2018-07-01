@@ -1,9 +1,10 @@
-const modal = $('.modal');
+const modal = get;
 const addBtn = $('.add-to-cart');
 const closeBtn = $('.close');
 
 addBtn.onclick = function() {
     modal.style.display = 'block';
+    console.log('click');
 };
 
 closeBtn.onclick = function() {
