@@ -3,4 +3,4 @@ USE girlScoutStore_DB;
 
 
 
-USE hh6a8jszedvuj7z9;
+/* USE hh6a8jszedvuj7z9; */
