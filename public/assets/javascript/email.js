@@ -18,8 +18,6 @@ $(document).ready(function() {
       $.post('/order', {cartList, sellerId, totalPrice, buyer, buyEmail});
     }
 
-    // $.get('/order', sellerId);
-
   }
 
 });

@@ -24,18 +24,11 @@ module.exports = function(app){
             sendSellerEmail(email, products, seller, buyer, price);
             sendBuyerEmail(buyEmail, products, seller, buyer, city, price);
         });
-            // res.render('order', dbSellers));
-   
-
-
     });
 
-
- 
     app.get('/order', function(req, res){
         res.render('order');
     });
-
 };
 
 
