@@ -1,92 +1,36 @@
 $(document).ready(function() {
 
-
-    // my goal is to have all click listeners in one spot for organizational purposes and clean code.
-    // Click listeners
-    $('#addSeller').on('click', handleNewSeller);
-    $('.viewSellers').on('click', viewAllSellers);
-
-
-
-
-
-    // Check new seller name
+    $('#submit-seller').on('click', handleNewSeller);
+  
     function handleNewSeller(event){
-        event.preventDefault();
 
-        // input field # for newSeller form
-        const sellerInfo = $('#sellerName').val().trim();
-        // !!!!!!! need to get input val for email, city, etc.
+        const name = $('#newSellerName').val().trim();
+        const state = $('#stateSelect').val().trim();
+        const email = $('#newSellerEmail').val().trim();
 
-        // check if works? (below)
-        // goal is to check if sellerInfo is empty string or not.
-        // I believe empty strings are falsey
-        // may need to have (sellerInfo === '')
-        // if(!sellerInfo){
-        //     return;
-        //     // will also have to add an else if for repeated names
-        //     // if a new seller name already exists, we must alert seller name already taken
-        //         // this is where usernames would come in handy.
-        // } else {
-        //     const newSellerObj = {
-        //         name: sellerInfo
-        //     }
-        //     newSeller(newSellerObj);
-        // };
-        if(sellerInfo) {
-            const newSellerObj = {
-                //need to add email, city, lat, lng
-                seller_name: sellerInfo,
-                email: sellerEmail,
-                city: sellerCity,
-                lat: latitude,
-                lng: longitude
-            }
-            newSeller(newSellerObj)
-        }
+        const address = $("#street-address").val().trim() + " " + 
+        $("#city").val().trim() + " " + state + " " + $("#zip-code").val().trim();
         
-    };
+        if(!name || !state || !email || !address){
+            event.preventDefault();
+        } else {
 
-    // CREATE new seller request
-    function newSeller(sellerData){
-        $.post('/api/sellers', sellerData)
-          .then(function(data){
-            console.log(data);
-              //could also call getAllSellers() to trigger new seller population.
-              // .then(viewAllSellers);
-          });
-    };
+            const url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address +"key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU";
 
-    // GET all sellers for view
-    function viewAllSellers(){
-        $.get('/api/sellers', function(data){
-            console.log(data);
+            $.get(url).done(function(data){
 
-            // where do you want sellers to appear?
-            for(let i = 0; i < data.length; i++){
-                console.log(data[i]);
-                // add to a div to show all sellers
-            }
-        });
-    };
+                let sellerLat = data.results[0].geometry.location.lat;
+                let sellerLng = data.results[0].geometry.location.lng;
 
-
-    // View seller by id
-    function viewSellerById(id){
-
-        if(!isNaN(id)){
-            const sellerId = id;
-            $.get('/api/sellers/' + sellerId, function(data){
-                console.log(data);
-    
-                for(let i = 0; i < data.length; i++){
-                    console.log(data[i]);
-                    // add to a div to show seller name
+                const newSeller = {
+                    seller_name: name,
+                    email: email,
+                    state: state,
+                    lat: sellerLat,
+                    lng: sellerLng
                 }
+                $.post('/api/sellers', newSeller);
             });
         }
     };
-
-
-
 });

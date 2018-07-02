@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // click listen to add item to cart
+
     $('.add-to-cart').on('click', addToCart);
 
     function addToCart(){
@@ -14,7 +14,6 @@ $(document).ready(function() {
             }
 
             let cartSubTotal = parseInt($('#cartSubTotal').text());
-           
             cartSubTotal += cartProduct.price;
 
             const tax = 0.0725;
@@ -25,7 +24,6 @@ $(document).ready(function() {
             $('#cartTaxTotal').text(cartTaxTotal);
             $('#cartSubTotal').text(cartSubTotal.toFixed(2));
             $('#cartTotal').text(cartTotal);
-
         });
     }
 });

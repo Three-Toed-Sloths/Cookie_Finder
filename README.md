@@ -1,5 +1,5 @@
-# project_2
-UCI Bootcamp Project 2
+# Cookie Finder
+https://cookie-seller-app.herokuapp.com/
 
 ## Technologies Used:
 * [Materialize](https://materializecss.com/)
@@ -23,6 +23,9 @@ Icons from Materialize:
 
 Fonts from Google Fonts:
 * https://fonts.google.com/
+
+Animations:
+* https://daneden.github.io/animate.css/
 
  ## Contributors:
  [Nick Clear](https://github.com/nmclear)<br>
