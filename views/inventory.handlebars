@@ -41,7 +41,7 @@
                 <label for='city'>City</label>
             </div>
             <div class='input-field col s2'>
-                <select class="browser-default">
+                <select id="state" class="browser-default">
                     <option value="" disabled selected>State</option>
                     <option value="AL">AL</option>
                     <option value="AK">AK</option>
@@ -123,22 +123,10 @@
             <div class='col s1'></div>
         </div>
     
-        <button class='green btn waves-effect waves-light' type='submit' name='action'>Submit
+        <button id="addSeller" class='green btn waves-effect waves-light' type='submit' name='action'>Submit
             <i class="material-icons left">send</i>
         </button>
-
     </div>
-
 </div>
 
-{{!-- <script>
-    const zipcode = $("#input_zipcode").val();
-    const streetAdd = $("#input_address").val();
-    const state = $("#input_state").val();
-    
-    function initMap(){
-        const geocoder = new google.maps.Geocoder();
-    }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU&callback=initMap">
-</script> --}}
+

@@ -1,25 +1,48 @@
+
 $(document).ready(function() {
-
-
+    
+    
     // my goal is to have all click listeners in one spot for organizational purposes and clean code.
     // Click listeners
-    $('#addSeller').on('click', handleNewSeller);
+    $('#addSeller').click(handleNewSeller);
     $('.viewSellers').on('click', viewAllSellers);
-
-
-
 
 
     // Check new seller name
     function handleNewSeller(event){
         event.preventDefault();
-
+        let sellerLat;
+        let sellerLng;
         // input field # for newSeller form
-        const sellerInfo = $('#sellerName').val().trim();
-        // !!!!!!! need to get input val for email, city, etc.
-
+        // const sellerInfo = $('#sellerName').val().trim();
         // check if works? (below)
-        // goal is to check if sellerInfo is empty string or not.
+        const sellerState = $("#state").val().trim();
+        const addressString = $("#street-address").val().trim() + " " + 
+        $("#city").val().trim() + " " + sellerState + " " + $("#zip-code").val().trim();
+        console.log(addressString);
+        const url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressString +"key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU";
+        //use ajax to make a request to this url to get long and lat.
+        $.get(url,function(data){
+            console.log(data.results[0].geometry.location.lat);
+            console.log(data.results[0].geometry.location.lng);
+            sellerLat = data.results[0].geometry.location.lat;
+            sellerLng = data.results[0].geometry.location.lng;
+            //put this inside get request in order to keep the lat and lng.
+            if(sellerInfo) {
+                const newSellerObj = {
+                    //need to add email, city, lat, lng
+                    seller_name: sellerInfo,
+                    email: sellerEmail,
+                    city: sellerCity,
+                    lat: latitude,
+                    lng: longitude
+                }
+                newSeller(newSellerObj)
+            }
+
+        });
+        
+        // goal is; to check if sellerInfo is empty string or not.
         // I believe empty strings are falsey
         // may need to have (sellerInfo === '')
         // if(!sellerInfo){
@@ -33,17 +56,8 @@ $(document).ready(function() {
         //     }
         //     newSeller(newSellerObj);
         // };
-        if(sellerInfo) {
-            const newSellerObj = {
-                //need to add email, city, lat, lng
-                seller_name: sellerInfo,
-                email: sellerEmail,
-                city: sellerCity,
-                lat: latitude,
-                lng: longitude
-            }
-            newSeller(newSellerObj)
-        }
+
+       
         
     };
 
@@ -73,7 +87,6 @@ $(document).ready(function() {
 
     // View seller by id
     function viewSellerById(id){
-
         if(!isNaN(id)){
             const sellerId = id;
             $.get('/api/sellers/' + sellerId, function(data){
