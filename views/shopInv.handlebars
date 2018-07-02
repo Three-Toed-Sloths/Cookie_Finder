@@ -1,68 +1,70 @@
-<div class='parallax-container'>
-    <div class='container'>
-        <div class='seller-info' sellers-id='{{productArr.0.id}}'>
-            <h3 id="sellerName">{{productArr.0.sellerName}}</h3>
-            <h5>When: {{when}}</h5>
-            <h5>Where: {{productArr.0.sellerCity}}</h5>
-        </div>
-    </div>
-    <div class='parallax banner'>
-        <img src='/assets/images/cookie_heart_banner.jpg' style='position: relative; right: 50px;'>
-    </div>
+<div class='content'>
 
-</div>
-
-<div class="container" id='shop'>
-    <div class="row">
-        <div class='col s12 l8'>
-            
-            <div class='card' id='inventory-view'>
-                <div class="card-content">
-                    <div class="row">
-                        {{#each productArr}}
-                            {{> storeFront/itemCard}}
-                        {{/each}}
-                    </div>
-                </div>
+    <div class='parallax-container'>
+        <div class='container'>
+            <div class='seller-info' sellers-id='{{productArr.0.id}}'>
+                <h3 id="sellerName">{{productArr.0.sellerName}}</h3>
+                <h5>When: {{when}}</h5>
+                <h5>Where: {{productArr.0.sellerCity}}</h5>
             </div>
         </div>
+        <div class='parallax banner'>
+            <img src='/assets/images/cookie_heart_banner.jpg' style='position: relative; right: 50px;'>
+        </div>
 
-        <div class='col s12 l4'>
-            <div class="card">
-                <div class="card-content" id='my-cart'>
-                    <div>
-                        <h5>My Cart:</h5>
-                        <hr>
-                        <ul id="cartList">
-                            {{#each cartArr}}
-                                {{> storeFront/cart}}
+    </div>
+
+    <div class="container" id='shop'>
+        <div class="row">
+            <div class='col s12 l8'>
+                
+                <div class='card' id='inventory-view'>
+                    <div class="card-content">
+                        <div class="row">
+                            {{#each productArr}}
+                                {{> storeFront/itemCard}}
                             {{/each}}
-                        </ul>
+                        </div>
                     </div>
-    
-                    <div id='cart-bottom'>
-                        <p id='subtotal'>Subtotal: $<span id="cartSubTotal">0</span></p>
-                        <p id='tax'>Tax: $<span id="cartTaxTotal">0</span></p>
-                        <p id='total'>Total: $<span id="cartTotal">0</span></p>
-                        <br>
+                </div>
+            </div>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="Name" id="buyer" type="text" class="validate">
-                            </div>
+            <div class='col s12 l4'>
+                <div class="card">
+                    <div class="card-content" id='my-cart'>
+                        <div>
+                            <h5>My Cart:</h5>
+                            <hr>
+                            <ul id="cartList">
+                                {{#each cartArr}}
+                                    {{> storeFront/cart}}
+                                {{/each}}
+                            </ul>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input placeholder="Email" id="buyerEmail" type="email" class="validate">
-                            </div>
-                        </div>
+        
+                        <div id='cart-bottom'>
+                            <p id='subtotal'>Subtotal: $<span id="cartSubTotal">0</span></p>
+                            <p id='tax'>Tax: $<span id="cartTaxTotal">0</span></p>
+                            <p id='total'>Total: $<span id="cartTotal">0</span></p>
+                            <br>
 
-                        <a href="/order" class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="Name" id="buyer" type="text" class="validate">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="Email" id="buyerEmail" type="email" class="validate">
+                                </div>
+                            </div>
+
+                            <a href="/order" class="green waves-effect waves-light btn" id='checkout'><i class="material-icons left">local_grocery_store</i>Checkout</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
-
-

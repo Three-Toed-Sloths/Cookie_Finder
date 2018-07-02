@@ -2,3 +2,20 @@
     display: none;
 }
 
+.landing-header {
+    font-size: 9em;
+}
+
+.landing-text {
+    font-size: 2em;
+    /* color: #373839; */
+    text-shadow: 2px 2px 2px #000;
+}
+
+.landing-img {
+    filter: blur(1px);
+}
+
+#showMap {
+    margin-top: 1.5em;
+}
