@@ -26,7 +26,6 @@ module.exports = function(app){
         }).then(dbSellers => res.json(dbSellers));
     });
 
-
     // POST new seller
     app.post('/api/sellers', function(req,res){
         db.Seller.create(req.body)

@@ -2,7 +2,6 @@ $(document).ready(function() {
 
   $('#checkout').on('click', checkOut);
 
-
   function checkOut(){
 
     const cartList = $('#cartList').html().trim();
