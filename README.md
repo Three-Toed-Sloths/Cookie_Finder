@@ -24,6 +24,9 @@ Icons from Materialize:
 Fonts from Google Fonts:
 * https://fonts.google.com/
 
+Animations:
+* https://daneden.github.io/animate.css/
+
  ## Contributors:
  [Nick Clear](https://github.com/nmclear)<br>
  [Nirav Patel](https://github.com/nrvpatel03)<br>
