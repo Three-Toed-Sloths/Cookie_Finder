@@ -6,7 +6,7 @@ function getAddr(lat, lng){
           const address = results[0].formatted_address;
 
             $('#sellerLocation').text(address);
-        });
+    });
 };
 
 $('#showAdd').on('click', function(){

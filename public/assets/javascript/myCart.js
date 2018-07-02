@@ -14,7 +14,6 @@ $(document).ready(function() {
             }
 
             let cartSubTotal = parseInt($('#cartSubTotal').text());
-           
             cartSubTotal += cartProduct.price;
 
             const tax = 0.0725;

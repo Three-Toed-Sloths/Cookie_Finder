@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#newSellerSubmit').on('click', handleNewSeller);
+    $('#submit-seller').on('click', handleNewSeller);
   
     function handleNewSeller(event){
 

@@ -1,117 +1,26 @@
-.seller-info {
-    text-align: left;
-    margin-top: 6em;
-}
-
-.seller-info > h3 {
-    font-family: 'Playfair Display', serif;
-}
-
-.seller-info > h5 {
-    font-family: 'Quicksand', sans-serif;
-}
-
-.shop {
-    margin-top: 2em;
-}
-
-.card-content {
-    min-height: 250px;
-}
-
-.add-to-cart {
-    position: absolute;
-    left: 23%;
-    bottom: 17px;
-}
-
-#my-cart {
-    min-height: 600px;
-}
-
-#cart-bottom {
-    position: absolute;
-    bottom: 17px;
-}
-
-#checkout {
-    left: 51%;
+#submit-seller {
+    width: 14%;
+    margin-left: 43%;
+    margin-bottom: 1.5em;
 }
 
 @media only screen and (max-width: 1024px) {
-    #my-cart {
-        min-height: 571px;
-    }
-    .add-to-cart {
-        left: 9%;
-    }
-    #checkout {
-        left: 11%;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .card-content  {
-        min-height: 200px;
-    }
-    .add-to-cart {
-        left: 37%;
-    }
-    #checkout {
-        left: 155%;
+    #submit-seller {
+        width: 20%;
+        margin-left: 40%;
     }
 }
 
 @media only screen and (max-width: 415px) {
-    .seller-info {
-        margin-left: 50px;
-    }
-    .card-content {
-        min-height: 230px;
-    }
-    .add-to-cart {
-        left: 24%;
-    }
-    #checkout {
-        left: 60%;
-    }
-}
-
-@media only screen and (max-width: 376px) {
-    .seller-info {
-        margin-left: 25px;
-    }
-    .card-content  {
-        min-height: 230px;
-    }
-    .add-to-cart {
-        left: 21%;
-    }
-    #checkout {
-        left: 48%;
+    #submit-seller {
+        width: 80%;
+        margin-left: 10%;
     }
 }
 
 @media only screen and (max-width: 360px) {
-    .card-content  {
-        min-height: 230px;
-    }
-    .add-to-cart {
-        left: 19%;
-    }
-    #checkout {
-        left: 43%;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    .card-content  {
-        min-height: 240px;
-    }
-    .add-to-cart {
-        left: 14%;
-    }
-    #checkout {
-        left: 29%;
+    #submit-seller {
+        width: 80%;
+        margin-left: 10%;
     }
 }
