@@ -5,7 +5,6 @@ function getAddr(lat, lng){
       function(results, status){
           const address = results[0].formatted_address;
 
-            console.log(address);
             $('#sellerLocation').text(address);
         });
 };

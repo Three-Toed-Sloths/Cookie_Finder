@@ -36,11 +36,11 @@ $('#showMap').on('click', function(){
     }
     
     function getState(pos,map,geocoder,markers){
-    console.log(pos);
+    
     map.setCenter(pos);
     map.setZoom(9);
     geocoder.geocode({'location':pos},function(results,status){
-    console.log(results);
+    
         if(status === 'OK'){
           if(results[0]){
             const res = results[0].address_components;
@@ -51,7 +51,7 @@ $('#showMap').on('click', function(){
                   }
               }
             }
-            console.log(state);
+           
             getSellers(state,map,markers);
           }
         }
@@ -65,7 +65,7 @@ $('#showMap').on('click', function(){
         let idArr = [];
         $.get("/api/sellers/state/" + state, function(data){
             if(data){
-                console.log(data);
+              
                 for(let i = 0; i<data.length; i++){
                     const latlngObj = {lat: data[i].lat, lng: data[i].lng};
                     latLngArr.push(latlngObj);
@@ -79,19 +79,16 @@ $('#showMap').on('click', function(){
         });
     }
     function genAddresses(latLngArr,namesArr,emailArr,idArr,map,markers){
-        console.log(latLngArr);
-        console.log(namesArr);
-        console.log(emailArr);
-        console.log(idArr);
+
         for(let i = 0; i<latLngArr.length; i++){
-            console.log(latLngArr[i]);
+     
             //HUGE PROBLEM, GOOGLE MAPS WILL NOT LET US GENERATE MORE THAN 4 REQUESTS at a time in one second!!! SO WE HAVE
             //A set time out function. But now first 4 markers show up right away, and rest show up lagging behind.
             //Error Over query limit. NEED THIS GEOCODING FOR ADDRESSES.
             const geocoder2 = new google.maps.Geocoder();         
             setTimeout(function(){
                     geocoder2.geocode({'location': {lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)}}, function(results, status){
-                    console.log(status);
+                    
                     if(status === 'OK'){
                         if(results[0]){
                             genMarkers(namesArr[i],emailArr[i],results[0].formatted_address,{lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)},idArr[i],map,markers);
@@ -134,7 +131,7 @@ $('#showMap').on('click', function(){
             map.setZoom(14);
         });
         markers.push(marker);
-        console.log("made it");
+   
     }
 initMap();
 
