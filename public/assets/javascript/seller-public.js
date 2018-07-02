@@ -5,7 +5,7 @@ $(document).ready(function() {
     function handleNewSeller(event){
 
         const name = $('#newSellerName').val().trim();
-        const state = $('#state').val().trim();
+        const state = $('#stateSelect').val().trim();
         const email = $('#newSellerEmail').val().trim();
 
         const address = $("#street-address").val().trim() + " " + 

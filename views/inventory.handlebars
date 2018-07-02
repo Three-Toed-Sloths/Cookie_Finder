@@ -1,7 +1,7 @@
 <div class='content'>
 
     <div class='container'>
-
+        <h1 id="signUpHead">Seller Sign-Up</h1>
         <div class='card'>
 
             <div class='row'>
@@ -18,14 +18,18 @@
                 </div>
                 <div class='col s1'></div>
             </div>
-
+        <div class="row">
+            <div class="input-field col s10 offset-s1">
+                <input placeholder="Email" id="newSellerEmail" type="email" class="validate">
+            </div>
+        </div>
             <div class='row'>
                 <div class='col s1'></div>
                 <form class='col s12 m5'>
                     <div class='input-field'>
                         <i class='material-icons prefix'>account_circle</i>
-                        <input id='name' type='text'>
-                        <label for='name'>Name</label>
+                        <input id='newSellerName' type='text'>
+                        <label for='newSellerName'>Name</label>
                     </div>
                 </form>
                     <div class='input-field col s12 m5'>
@@ -44,7 +48,7 @@
                     <label for='city'>City</label>
                 </div>
                 <div class='input-field col s6 m2'>
-                    <select class="browser-default">
+                    <select class="browser-default" id='stateSelect'>
                         <option value="" disabled selected>State</option>
                         <option value="AL">AL</option>
                         <option value="AK">AK</option>

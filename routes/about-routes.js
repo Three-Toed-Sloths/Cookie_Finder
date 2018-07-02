@@ -7,6 +7,10 @@ module.exports = function(app){
         res.render('landing');
     });
 
+    app.get('/order', function(req, res){
+        res.render('order');
+    });
+
     app.get('/signup/thankyou', function(req, res){
         res.render('thanks');
     });
