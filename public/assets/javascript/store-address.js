@@ -6,7 +6,7 @@ function getAddr(lat, lng){
           const address = results[0].formatted_address;
 
             console.log(address);
-            $('#sellerLocation').text(`Where: ${address}`);
+            $('#sellerLocation').text(address);
         });
 };
 
