@@ -15,7 +15,14 @@
     margin-top: 1.5em;
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 628px) {
+    .landing-header {
+        font-size: 7em;
+        text-shadow: 2px 2px 2px #000;
+    }
+}
+
+@media only screen and (max-width: 462px) {
     .landing-header {
         font-size: 4em;
         text-shadow: 2px 2px 2px #000;
