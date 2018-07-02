@@ -5,6 +5,12 @@ $('#showMap').on('click', function(){
     $('#map').show();
 });
 
+$(".goToBtn").on('click', function(){
+    console.log('helllllllo');
+    event.preventDefault();
+    // let storeAddress = $('.address').val();
+    // console.log('Store Address ' + storeAddress);
+});
 
     //Functions for landing
     function initMap() {
@@ -104,7 +110,7 @@ $('#showMap').on('click', function(){
                         }
                     }
                 });
-            },1000 * i); 
+            },0500 * i); 
         }
     
     }
@@ -115,11 +121,11 @@ $('#showMap').on('click', function(){
         '<h6 style="font-size: 24px">Seller Name: '+ name + '</h6>'+
         '<div id="bodyContent">'+
         '<h6>Email: '+ email + '</h6>' +
-         '<h6>Address: <span id="address">' + address + '</span></h6>' +
+         '<h6>Address: <span class="address">' + address + '</span></h6>' +
          '<h6><a href="' +urlString+  '">Store Page</a></h6>' +
         '</div>'+
         '</div>';
-        
+     
         
         const infoWindow = new google.maps.InfoWindow({
             content: content
@@ -137,3 +143,4 @@ $('#showMap').on('click', function(){
         console.log("made it");
     }
 initMap();
+

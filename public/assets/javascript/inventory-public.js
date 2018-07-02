@@ -3,10 +3,10 @@ $(document).ready(function() {
 
 
     // Click listeners
-    $('.sellerInventory').on('click', handleSellerInventory);
-    $('.addInventory').on('click', handleAddInventory);
-    $('.updateStock').on('click', handleUpdateStock);
-    $('.deleteInventory').on('click', handleDeleteInventory);
+    // $('.sellerInventory').on('click', handleSellerInventory);
+    // $('#newSellerSubmit').on('click', handleNewSeller);
+    // $('.updateStock').on('click', handleUpdateStock);
+    // $('.deleteInventory').on('click', handleDeleteInventory);
         // Potential Click Listeners: add to order, remove from order
 
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
         // val should be seller id (number)
         const sellerId = $('.sellerInventory').val().trim();
         
-        if(!NaN(sellerId)){
+        if(!isNaN(sellerId)){
             getSellerInventory(sellerId);
         } else {
             console.log('The sellerId val is not a number. see handleSellerInventory in inventory-public.js');
@@ -29,9 +29,10 @@ $(document).ready(function() {
 
 
     // Check details to add inventory
-    function handleAddInventory(event){
+    function handleNewSeller(event){
         event.preventDefault();
-        // who is the seller?
+
+
         // what product are they adding to sell?
         // call another function
     };

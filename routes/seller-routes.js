@@ -12,14 +12,12 @@ module.exports = function(app){
             where: {
                 id: req.params.id
             },
-            // allows to see what products they are selling and how much
             include: [db.Products]
 
         }).then(dbSellers => res.json(dbSellers));
-        
     });
 
-    // GET seller by STATE CHANGED FROM CITY FOR TIME BEING.
+    // GET seller by state
     app.get("/api/sellers/state/:state", function(req, res) {
         db.Seller.findAll({
             where: {
@@ -31,86 +29,40 @@ module.exports = function(app){
 
     // POST new seller
     app.post('/api/sellers', function(req,res){
-        // may not be req.body. Check after AJAX Setup. Need to create object.
-        db.Sellers.create(req.body)
+        db.Seller.create(req.body)
           .then(dbSellers => res.json(dbSellers));
     });
 
-    // app.get('/', function(req,res){
-    //     res.render('landing');
-    // })
-
-
-    // app.get('/', function(req, res){
-    //     db.Seller.findAll({}).then(dbSellers => {
-    //         const sellerArr = [];
-    //         for(let i = 0; i < dbSellers.length; i++){
-    //             let sellerInfo = dbSellers[i].dataValues;
-
-    //             const seller = {
-    //                 name: sellerInfo.seller_name,
-    //                 city: sellerInfo.city
-    //             }
-    //             sellerArr.push(seller)
-    //             // console.log(seller)
-    //         }
-    //         console.log(sellerArr);
-    //         res.render('store', sellerArr);
-    //     })
-    // });
-
-    // app.post('/sellers/:id', function(req,res){
-        
-    //     const cartProduct = req.body;
-
-    //     const cartArr = [];
-    //     cartArr.push(cartProduct);
-    //     console.log(cartArr);
-    //     res.render('shopInv', {cartArr})
-
-    // })
-   
     app.get('/sellers/:id', function(req, res) {
-            db.Seller.findOne({
-                where: {
-                    id: req.params.id
-                },
-                include: [db.Products]
+        db.Seller.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.Products]
     
-            }).then(dbSellers => {
+        }).then(dbSellers => {
                 
-                const productArr = [];
-                const sellerInfo = dbSellers.dataValues;
+            const productArr = [];
+            const sellerInfo = dbSellers.dataValues;
 
-                for(let i = 0; i < sellerInfo.Products.length; i++){
+            for(let i = 0; i < sellerInfo.Products.length; i++){
 
-                    const productInfo = sellerInfo.Products[i].dataValues;
-                    const productInvInfo = productInfo.Inventory.dataValues;
+                const productInfo = sellerInfo.Products[i].dataValues;
+                const productInvInfo = productInfo.Inventory.dataValues;
 
-                    const product = {
-                        id: sellerInfo.id,
-                        sellerName: sellerInfo.seller_name,
-                        sellerCity: sellerInfo.city,
-                        productId: productInfo.id,
-                        productName: productInfo.product_name,
-                        price: productInfo.price,
-                        description: productInfo.description,
-                        stock: productInvInfo.stock
-                    }
-                    productArr.push(product);
+                const product = {
+                    id: sellerInfo.id,
+                    sellerName: sellerInfo.seller_name,
+                    sellerState: sellerInfo.state,
+                    productId: productInfo.id,
+                    productName: productInfo.product_name,
+                    price: productInfo.price,
+                    description: productInfo.description,
+                    stock: productInvInfo.stock
                 }
-
-
-                // const cartArr = [
-                //     { 
-                //         cartProductId: '2',
-                //         cartProductName: 'Thin Mints®',
-                //         cartProductPrice: '4.00'
-                //     }
-                // ];
-
-                res.render('shopInv', {productArr})
-                // res.render('shopInv', {productArr, cartArr})
-            });
+                productArr.push(product);
+            }
+            res.render('shopInv', {productArr})
+        });
     });
 };

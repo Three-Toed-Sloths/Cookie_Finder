@@ -19,10 +19,10 @@ module.exports = function(app){
 
             const seller = stats.seller_name;
             const email = stats.email;
-            const city = stats.city;
+            const state = stats.state;
               
             sendSellerEmail(email, products, seller, buyer, price);
-            sendBuyerEmail(buyEmail, products, seller, buyer, city, price);
+            sendBuyerEmail(buyEmail, products, seller, buyer, state, price);
         });
     });
 
