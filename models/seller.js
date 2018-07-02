@@ -16,7 +16,6 @@ module.exports = function(sequelize, DataTypes) {
                 isEmail: true
             }
         },
-        //CHANGED TO STATE FOR TIME BEING
         state: {
             type: DataTypes.STRING(3),
             allowNull: false,
@@ -25,18 +24,18 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         lat: {
-            type:DataTypes.DECIMAL(10, 6),
+            type:DataTypes.DECIMAL(20, 6),
             allowNull: false,
             validate: {
-                len: [1,10],
+                len: [1,20],
                 isDecimal: true
             }
         },
         lng: {
-            type:DataTypes.DECIMAL(10, 6),
+            type:DataTypes.DECIMAL(20, 6),
             allowNull: false,
             validate: {
-                len: [1,10],
+                len: [1,20],
                 isDecimal: true
             }
         },

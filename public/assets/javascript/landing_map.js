@@ -1,15 +1,7 @@
 
-
 $('#showMap').on('click', function(){
     $('#showMap').hide();
     $('#map').show();
-});
-
-$(".goToBtn").on('click', function(){
-    console.log('helllllllo');
-    event.preventDefault();
-    // let storeAddress = $('.address').val();
-    // console.log('Store Address ' + storeAddress);
 });
 
     //Functions for landing
@@ -17,17 +9,13 @@ $(".goToBtn").on('click', function(){
       //create the map
       let map;
       let markers = [];
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 33.641558, lng: -117.844800},
-        zoom: 6
-      });
+      map = new google.maps.Map(document.getElementById('map'));
     
       geocoder1 = new google.maps.Geocoder();
       let pos = {lat: 33.641558,
         lng: -117.844800};
         // let pos = {};
-      let state;
-    
+        let state;
         getState(pos,map,geocoder1,markers);
       
         // if (navigator.geolocation) {
@@ -100,7 +88,7 @@ $(".goToBtn").on('click', function(){
             //HUGE PROBLEM, GOOGLE MAPS WILL NOT LET US GENERATE MORE THAN 4 REQUESTS at a time in one second!!! SO WE HAVE
             //A set time out function. But now first 4 markers show up right away, and rest show up lagging behind.
             //Error Over query limit. NEED THIS GEOCODING FOR ADDRESSES.
-            const geocoder2 = new google.maps.Geocoder();            
+            const geocoder2 = new google.maps.Geocoder();         
             setTimeout(function(){
                     geocoder2.geocode({'location': {lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)}}, function(results, status){
                     console.log(status);
@@ -110,9 +98,16 @@ $(".goToBtn").on('click', function(){
                         }
                     }
                 });
-            },0500 * i); 
+            },1000 * i); 
         }
-    
+        $('#showMap').on('click', function(){
+            $('#showMap').hide();
+            $("#notMap").show();
+            setTimeout(function(){
+                $("#notMap").hide();
+                $("#map").fadeIn();
+            }, latLngArr.length * 1000);
+        });
     }
     //inventory.handlebars
     function genMarkers(name,email,address, latlng,id, map,markers){

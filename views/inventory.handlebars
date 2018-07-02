@@ -26,12 +26,12 @@
             <form class='col s10 m5'>
                 <div class='input-field'>
                     <i class='material-icons prefix'>account_circle</i>
-                    <input placeholder='Name' id='newSellerName' type='text'>
+                    <input placeholder='Name' id='newSellerName' type='text' class="validate">
                     <label for='newSellerName'>Name</label>
                 </div>
             </form>
                 <div class='input-field col s10 m5'>
-                    <input placeholder='Street Address' id='street-address' type='text'>
+                    <input placeholder='Street Address' id='street-address' type='text' class="validate">
                     <label for='street-address'>Street Address</label>
                 </div>
             <div class='col s1'></div>
@@ -41,11 +41,11 @@
             <div class='col s1'></div>
             <div class='input-field col s10 m5'>
                 <i class='material-icons prefix'>domain</i>
-                <input placeholder='City' id='city' type='text'>
+                <input placeholder='City' id='city' type='text' class="validate">
                 <label for='city'>City</label>
             </div>
             <div class='input-field col s2'>
-                <select id="stateSelect" class="browser-default">
+                <select id="state" class="browser-default" class="validate">
                     <option value="" disabled selected>State</option>
                     <option value="AL">AL</option>
                     <option value="AK">AK</option>
@@ -101,7 +101,7 @@
                 </select>
             </div>
             <div class='input-field col s3'>
-                <input placeholder='Zip Code' id='zip-code' type='text' data-length='5'>
+                <input placeholder='Zip Code' id='zip-code' type='text' data-length='5' class="validate">
                 <label for='zip-code'>Zip Code</label>
             </div>
             <div class='col s1'></div>
@@ -132,17 +132,6 @@
         </a>
 
     </div>
-
 </div>
 
-{{!-- <script>
-    const zipcode = $("#input_zipcode").val();
-    const streetAdd = $("#input_address").val();
-    const state = $("#input_state").val();
-    
-    function initMap(){
-        const geocoder = new google.maps.Geocoder();
-    }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkaGCzHFOeCKDvbU4HEjULslR9zeXeyQU&callback=initMap">
-</script> --}}
+
