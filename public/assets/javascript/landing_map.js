@@ -117,11 +117,10 @@ $('#showMap').on('click', function(){
         '<div id="bodyContent">'+
         '<h6>Email: '+ email + '</h6>' +
          '<h6>Address: <span class="address">' + address + '</span></h6>' +
-         '<h6><a href="' +urlString+  '">Store Page</a></h6>' +
+         '<h6><a id="goToStore" href="' +urlString+  '">Store Page</a></h6>' +
         '</div>'+
         '</div>';
      
-        
         const infoWindow = new google.maps.InfoWindow({
             content: content
         });

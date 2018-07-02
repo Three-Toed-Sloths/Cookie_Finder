@@ -54,6 +54,8 @@ module.exports = function(app){
                     id: sellerInfo.id,
                     sellerName: sellerInfo.seller_name,
                     sellerState: sellerInfo.state,
+                    sellerLat: sellerInfo.lat,
+                    sellerLng: sellerInfo.lng,
                     productId: productInfo.id,
                     productName: productInfo.product_name,
                     price: productInfo.price,
