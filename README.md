@@ -1,5 +1,5 @@
-# project_2
-UCI Bootcamp Project 2
+# Cookie Finder
+https://cookie-seller-app.herokuapp.com/
 
 ## Technologies Used:
 * [Materialize](https://materializecss.com/)
