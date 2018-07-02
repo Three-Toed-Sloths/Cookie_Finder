@@ -1,0 +1,35 @@
+.seller-info {
+    text-align: left;
+    margin-top: 6em;
+}
+
+.seller-info > h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.seller-info > h5 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.shop {
+    margin-top: 2em;
+}
+
+.item-card {
+    min-height: 275px;
+}
+
+.add-to-cart,
+#checkout {
+    width: 100%;
+}
+
+.add-to-cart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.btn-holder {
+    min-height: 50px;
+}

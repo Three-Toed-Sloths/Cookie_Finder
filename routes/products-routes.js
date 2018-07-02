@@ -20,7 +20,6 @@ module.exports = function(app){
         }).then(dbProducts => res.json(dbProducts));
     });
 
-
     // POST new products (may not need)
     app.post('/api/products', function(req, res){
         db.Products.create(req.body)
@@ -46,10 +45,6 @@ module.exports = function(app){
             }
         }).then(dbProducts => res.json(dbProducts));
     });
-
-
-
-
 
     //display products
     app.get('/signup', function(req, res) {

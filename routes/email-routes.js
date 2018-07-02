@@ -9,6 +9,7 @@ module.exports = function(app){
         const price = req.body.totalPrice;
         const buyer = req.body.buyer;
         const buyEmail = req.body.buyEmail;
+        const address = req.body.address;
 
         db.Seller.findOne({
                 where: {
@@ -19,10 +20,10 @@ module.exports = function(app){
 
             const seller = stats.seller_name;
             const email = stats.email;
-            const city = stats.city;
+            // const state = stats.state;
               
             sendSellerEmail(email, products, seller, buyer, price);
-            sendBuyerEmail(buyEmail, products, seller, buyer, city, price);
+            sendBuyerEmail(buyEmail, products, seller, buyer, address, price);
         });
     });
 
