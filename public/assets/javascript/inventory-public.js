@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 
 
-
+    const cookieId = $('.cookies-option').val().trim();
     
     // Check for seller value
     function handleSellerInventory(event){

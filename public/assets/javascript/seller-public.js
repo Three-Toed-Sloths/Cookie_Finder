@@ -2,7 +2,6 @@ $(document).ready(function() {
 
     $('#newSellerSubmit').on('click', handleNewSeller);
 
-
     function handleNewSeller(event){
         // event.preventDefault();
         const name = $('#newSellerName').val().trim();
@@ -19,9 +18,5 @@ $(document).ready(function() {
 
         $.post('/api/sellers', newSeller);
 
-        
     };
-
-
-
 });
