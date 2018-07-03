@@ -25,24 +25,3 @@ module.exports = function(sequelize, DataTypes) {
     return Inventory;
 }
 
-
-
-
-
-// store_id: {
-//     type: DataTypes.INTEGER(10),
-//     allowNull: false,
-//     validate: {
-//         isNumeric: true
-//     }
-// },
-// prod_id: {
-//     type: DataTypes.INTEGER(10),
-//     allowNull: false,
-//     validate: {
-//         isNumeric: true
-//     }
-// },
-
-
-

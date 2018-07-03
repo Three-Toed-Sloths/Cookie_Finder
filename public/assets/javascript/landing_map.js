@@ -82,9 +82,6 @@ $('#showMap').on('click', function(){
 
         for(let i = 0; i<latLngArr.length; i++){
      
-            //HUGE PROBLEM, GOOGLE MAPS WILL NOT LET US GENERATE MORE THAN 4 REQUESTS at a time in one second!!! SO WE HAVE
-            //A set time out function. But now first 4 markers show up right away, and rest show up lagging behind.
-            //Error Over query limit. NEED THIS GEOCODING FOR ADDRESSES.
             const geocoder2 = new google.maps.Geocoder();         
             setTimeout(function(){
                     geocoder2.geocode({'location': {lat: parseFloat(latLngArr[i].lat), lng: parseFloat(latLngArr[i].lng)}}, function(results, status){

@@ -1,0 +1,14 @@
+@media only screen and (max-width: 1457px) {
+    .mission-header {
+        margin-top: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 461px) {
+    .mission-header {
+        margin-top: .5em;
+    }
+    .about-header {
+        margin-top: 2.5em;
+    }
+}
