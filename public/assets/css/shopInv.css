@@ -16,6 +16,7 @@
 }
 
 .item-card {
+    position: relative;
     min-height: 275px;
 }
 
@@ -24,12 +25,56 @@
     width: 100%;
 }
 
+.btn-holder {
+    min-height: 50px;
+}
+
 .add-to-cart {
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
-.btn-holder {
-    min-height: 50px;
+.clearfix {
+    /* overflow: auto; */
+    position: relative;
+}
+
+@media only screen and (max-width: 1024px) {
+    #checkout {
+        width: 40%;
+        left: 30%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #checkout {
+        width: 40%;
+        left: 30%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .seller-info {
+        margin-left: 10%;
+    }
+    .add-to-cart,
+    #checkout {
+        width: 40%;
+        left: 30%;
+    }
+    .item-card {
+        min-height: 150px;
+    }
+}
+
+@media only screen and (max-width: 565px) {
+    .seller-info {
+        margin-left: 10%;
+    }
+    .add-to-cart,
+    #checkout {
+        width: 100%;
+        left: 0;
+    }
 }
