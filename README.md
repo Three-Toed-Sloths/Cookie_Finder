@@ -31,4 +31,4 @@ Animations:
  [Nick Clear](https://github.com/nmclear)<br>
  [Nirav Patel](https://github.com/nrvpatel03)<br>
  [Marco Saglietto](https://github.com/Saglietto-Marco)<br>
- [David Yeung](https://github.com/yeungpirate)<br>
+ [David Yeung](https://github.com/davidyeungcoding)<br>
